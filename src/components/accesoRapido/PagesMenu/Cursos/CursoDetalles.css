@@ -1,0 +1,121 @@
+.curso-detalle {
+    background-color: #f3f4f6;
+    border-radius: 10px;
+    padding: 1.5rem;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+    margin-top: 1rem;
+    color: #111827;
+}
+
+.dark .curso-detalle {
+    background-color: #111827;
+    border: 1px solid #374151;
+    color: #f9fafb;
+    box-shadow: none;
+}
+
+/* Header del curso */
+.header-curso-detalle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 0.5rem;
+}
+
+.dark .header-curso-detalle {
+    border-bottom: 2px solid #4b5563;
+}
+
+/* Título */
+.header-curso-detalle h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Botón volver */
+.btn-volver {
+    padding: 6px 12px;
+    background-color: var(--card-bg, #ffffff);
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #111827;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-volver:hover {
+    background-color: #e5e7eb;
+}
+
+.dark .btn-volver {
+    background-color: #1f2937;
+    color: #f9fafb;
+    border-color: #4b5563;
+}
+
+.dark .btn-volver:hover {
+    background-color: #374151;
+}
+
+/* Información del curso */
+.info-curso {
+    margin-bottom: 2rem;
+}
+
+.info-curso p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    color: #374151;
+}
+
+.dark .info-curso p {
+    color: #d1d5db;
+}
+
+/* Lista de alumnos */
+.lista-alumnos {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+.lista-alumnos li {
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.lista-alumnos li:hover {
+    background-color: #f3f4f6;
+}
+
+/* Modo oscuro lista */
+.dark .lista-alumnos li {
+    background-color: #1f2937;
+    border-color: #4b5563;
+    color: #f9fafb;
+}
+
+.dark .lista-alumnos li:hover {
+    background-color: #2d3748;
+}
+
+/* .nombre-alumno {
+    cursor: pointer;
+    color: var(--link-color);
+    transition: color 0.2s, text-decoration 0.2s;
+}
+
+.nombre-alumno:hover {
+    color: var(--link-hover-color, var(--link-color));
+    text-decoration: underline;
+} */

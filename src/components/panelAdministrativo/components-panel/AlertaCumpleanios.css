@@ -1,0 +1,59 @@
+.alerta-cumple-container {
+  padding: 1rem;
+}
+
+.alerta-cumple-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.alerta-cumple-header h1 {
+  font-size: 1.75rem;
+  font-weight: bold;
+}
+
+.btn-volver {
+  padding: 6px 12px;
+  background: transparent;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.alerta-cumple-botones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.btn-cumple {
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+  min-width: 220px;
+}
+
+.btn-cumple:hover {
+  background-color: var(--btn-hover-bg);
+  color: var(--btn-hover-text);
+}
+
+/* Modo oscuro */
+body.dark .btn-cumple {
+  background-color: #1f2937;
+  color: #f3f4f6;
+  border-color: #4b5563;
+}
+
+body.dark .btn-cumple:hover {
+  background-color: #374151;
+}

@@ -1,0 +1,59 @@
+.switch-toggle {
+    position: relative;
+    display: inline-block;
+    width: 75px;
+    /* ← Esto define el ancho visible del switch */
+    height: 20px;
+}
+
+.switch-toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider-toggle {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #dc2626;
+    /* rojo por defecto (inactivo) */
+    transition: 0.4s ease;
+    border-radius: 25px;
+}
+
+/* Círculo deslizante */
+.slider-toggle:before {
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 15px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s ease;
+    border-radius: 50%;
+}
+
+/* Switch activado */
+input:checked+.slider-toggle {
+    background-color: #10b981;
+    /* verde */
+}
+
+input:checked+.slider-toggle:before {
+    transform: translateX(15px);
+    /* se mueve a la derecha */
+}
+
+/* Dark mode */
+.dark .slider-toggle {
+    background-color: #991b1b;
+}
+
+.dark input:checked+.slider-toggle {
+    background-color: #059669;
+}

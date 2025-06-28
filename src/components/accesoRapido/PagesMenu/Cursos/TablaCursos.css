@@ -1,0 +1,145 @@
+.tabla-cursos-container {
+    overflow-x: auto;
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: #f3f4f6;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e5e7eb;
+}
+
+/* Modo oscuro */
+.dark .tabla-cursos-container {
+    background-color: #111827;
+    box-shadow: none;
+    border: 1px solid #374151;
+}
+
+.tabla-cursos {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-family: sans-serif;
+    background-color: #ffffff;
+    color: #111827;
+    box-shadow: 0 0 10px rgba(54, 43, 43, 0.1);
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.tabla-cursos thead th:first-child {
+    border-top-left-radius: 10px;
+}
+
+.tabla-cursos thead th:last-child {
+    border-top-right-radius: 10px;
+}
+
+.tabla-cursos tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+}
+
+.tabla-cursos tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+}
+
+.tabla-cursos thead {
+    background-color: #f3f4f6;
+}
+
+.tabla-cursos th,
+.tabla-cursos td {
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    text-align: left;
+}
+
+.tabla-cursos tr:nth-child(even) {
+    background-color: #f9fafb;
+}
+
+/* Modo oscuro */
+.dark .tabla-cursos {
+    background-color: #1f2937;
+    color: #f9fafb;
+}
+
+.dark .tabla-cursos thead {
+    background-color: #374151;
+}
+
+.dark .tabla-cursos th,
+.dark .tabla-cursos td {
+    border-color: #4b5563;
+}
+
+.dark .tabla-cursos tr:nth-child(even) {
+    background-color: #2d3748;
+}
+
+/* Paginación */
+.paginacion-cursos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.paginacion-cursos button {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #111;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.paginacion-cursos button:hover:not(:disabled) {
+    background-color: #f3f4f6;
+}
+
+.paginacion-cursos button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+body.dark .paginacion-cursos button {
+    background-color: #1f2937;
+    color: #f1f1f1;
+    border: 1px solid #4b5563;
+}
+
+body.dark .paginacion-cursos button:hover:not(:disabled) {
+    background-color: #374151;
+}
+
+/* Buscador */
+.buscador-cursos {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 1rem;
+}
+
+.buscador-cursos input {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 250px;
+}
+
+body.dark .buscador-cursos input {
+    background-color: #1f2937;
+    color: #f1f1f1;
+    border: 1px solid #4b5563;
+}
+
+:root {
+    --link-color: #0077cc;
+    --link-hover-color: #005fa3;
+}
+
+[data-theme="dark"] {
+    --link-color: #66aaff;
+    --link-hover-color: #99cfff;
+}

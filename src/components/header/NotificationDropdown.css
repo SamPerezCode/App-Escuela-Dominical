@@ -1,0 +1,88 @@
+.notification-wrapper {
+    position: relative;
+}
+
+.notification-dropdown {
+    position: absolute;
+    top: 45px;
+    right: 0;
+    background-color: white;
+    color: #1f2937; /* Texto en modo claro */
+    border: 1px solid #ddd;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    min-width: 220px;
+    z-index: 100;
+}
+
+.notification-title {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: inherit;
+}
+
+.notification-empty {
+    color: #6b7280;
+    font-size: 0.95em;
+}
+
+.notification-dropdown hr {
+    margin: 10px 0;
+    border: none;
+    border-top: 1px solid #eee;
+}
+
+/* MODO OSCURO */
+.dark .notification-dropdown {
+    background-color: #2a2a2a;
+    color: #f3f4f6; /* Texto claro */
+    border: 1px solid #444;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.dark .notification-empty {
+    color: #9ca3af;
+}
+
+.dark .notification-dropdown hr {
+    border-top: 1px solid #555;
+}
+
+.dark .notification {
+    filter: brightness(0) invert(1);
+}
+
+/* Indicador visual para notificaciones */
+.tiene-notificaciones {
+    position: relative;
+    animation: campana 1s ease infinite;
+}
+
+/* 🔴 Badge de notificaciones */
+.notificacion-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 50%;
+    font-weight: bold;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+}
+
+/* 🌙 DARK MODE - badge */
+.dark .notificacion-badge {
+    background-color: #f87171;
+    /* rojo claro para modo oscuro */
+    color: black;
+    border-color: #2a2a2a;
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.4);
+}
+@keyframes campana {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(10deg); }
+    75% { transform: rotate(-10deg); }
+}

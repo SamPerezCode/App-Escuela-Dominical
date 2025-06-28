@@ -1,0 +1,159 @@
+
+.registro-estudiantes {
+    width: 100%;
+    padding: 2rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+.registro-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 8px;
+}
+.dark .registro-header {
+    color: #f9fafb;
+    border-bottom: 2px solid #4b5563;
+}
+.registro-header h1 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--text);
+}
+
+.registro-formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 800px;
+}
+
+.form-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-grupo label {
+    font-weight: bold;
+}
+
+
+.form-grupo input,
+.form-grupo select {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+}
+
+.botones-formulario {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn-guardar,
+.btn-cancelar,
+.btn-volver-estudiante {
+    font-size: 14px;
+    font-weight: 600; /* uniforme */
+    line-height: 1.5;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-guardar {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-guardar:hover {
+    background-color: #0056b3;
+}
+
+.btn-cancelar {
+    background-color: #f44336;
+    color: white;
+}
+
+.btn-cancelar:hover {
+    background-color: #c62828;
+}
+
+.btn-volver-estudiante {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+
+.btn-volver-estudiante:hover {
+    background-color: var(--btn-hover-bg);
+    color: var(--btn-hover-text);
+}
+
+/* Modo oscuro */
+body.dark .form-grupo input,
+body.dark .form-grupo select {
+    background-color: #2c2c2c;
+    border-color: #555;
+    color: #f1f1f1;
+}
+
+body.dark .btn-volver-estudiante {
+    border-color: #666;
+}
+
+body.dark .btn-volver-estudiante:hover {
+    background-color: #333;
+    color: white;
+}
+.acciones-estudiantes{
+    display: flex;
+    align-items: center;
+    gap: 0px;
+    position: relative;
+}
+
+/* Responsive */
+@media (min-width: 640px) {
+    /* .registro-header {
+        align-items: center;
+    } */
+    .registro-header button {
+        margin-right: 0px;
+    }
+
+    .registro-formulario {
+        width: 100%;
+    }
+    .registro-estudiantes {
+        min-width: 600px;
+    }
+    .btn-volver-estudiante {
+        margin-right: 35px;
+    }
+    .registro-header h1 {
+        font-size: 2rem;
+        
+    }
+    .menu-icon {
+    display: none;
+}
+
+
+}

@@ -1,0 +1,273 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #edeef2;
+    color: #1a1a1a;
+}
+
+.dark body {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+}
+
+.container-Dashboard {
+    width: 100%;
+    min-height: 100vh;
+
+}
+
+.container-panelAdmin-dashboard {
+    overflow-x: visible;
+    width: 100%;
+
+}
+
+.container-panelAdmin-dashboard details {
+    margin: auto 25px;
+}
+
+.container-panel {
+    /* margin-top: 20px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    padding: 0 5px;
+}
+
+.dark .container-panel {
+    background-color: #2a2a2a;
+}
+.contenido-dinamico {
+    /* flex: 1; */
+    padding: 1rem;
+    min-height: 100%;
+    width: 100%;
+    background-color: var(--bg);
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.container-menu-desktop {
+    display: none;
+}
+
+.container-header-desktop {
+    display: none;
+}
+
+.container-menu-movil {
+    margin-top: 10px;
+}
+
+.panel-admin-desplegable {
+    background-color: var(--color-fondo-panel);
+    border: 1px solid var(--borde-panel);
+    /* Opcional */
+    border-radius: 6px;
+    overflow: hidden;
+    /* margin-bottom: 1rem; */
+    /* display: flex;
+    justify-content: center; */
+
+}
+
+.panel-admin-desplegable summary {
+    list-style: none;
+    width: 100%;
+    padding: 12px 16px;
+
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-summary);
+    /* Color distinto del contenido expandido */
+    border-bottom: 1px solid var(--borde-summary);
+}
+
+.panel-admin-desplegable[open] summary {
+    border-bottom: none;
+    /* Opcional para quitar doble borde al expandir */
+}
+
+.panel-admin-desplegable .caret-icon {
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+}
+
+.panel-admin-desplegable[open] .caret-icon {
+    transform: rotate(180deg);
+    /* Gira la flecha al abrir */
+}
+
+/* Modo oscuro */
+body.dark .panel-admin-desplegable summary {
+    background-color: #1e1e2f;
+    color: #f9fafb;
+}
+
+/* DARK MODE */
+@media (prefers-color-scheme: dark) {
+    .panel-admin-desplegable {
+        background-color: #474747;
+        border: 1px solid #333;
+    }
+
+    .panel-admin-desplegable summary {
+        background-color: #1e1e1e;
+        color: #f1f1f1;
+        border-color: #444;
+    }
+
+    .panel-admin-desplegable summary:hover {
+        background-color: #2a2a2a;
+    }
+}
+
+/* Modo claro */
+body:not(.dark) .panel-admin-desplegable summary {
+    background-color: #f3f4f6 !important;
+    color: #111827 !important;
+}
+
+/* LIGHT MODE */
+@media (prefers-color-scheme: light) {
+    .panel-admin-desplegable {
+        background-color: #f9f9f9 !important;
+        border: 1px solid #ccc !important;
+    }
+
+    .panel-admin-desplegable summary {
+        background-color: #ffffff;
+        /* ← aquí forzamos el fondo claro */
+        color: #333;
+        border-color: #ddd;
+    }
+
+    .panel-admin-desplegable summary:hover {
+        background-color: #efefef;
+    }
+}
+
+/* Ícono flecha */
+.caret-icon {
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+}
+
+/* Animación al abrir */
+.panel-admin-desplegable[open] .caret-icon {
+    transform: rotate(180deg);
+}
+
+.panel-admin-desplegable summary {
+    position: relative;
+}
+
+.panel-admin-desplegable .caret-icon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    margin-left: auto;
+}
+
+/* Gira el icono cuando <details> está abierto */
+.panel-admin-desplegable[open] .caret-icon {
+    transform: rotate(180deg);
+}
+
+@media (min-width: 640px) {
+    .container-panel {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        margin-top: 10px;
+        border-radius: 10px;
+        /* gap: 30px; */
+        /* padding: 0 40px; */
+    }
+
+    .container-menu-desktop {
+        display: block;
+        margin: 10px;
+        /* margin-top: 10px;
+        margin-left: 10px; */
+
+    }
+
+    .container-header-desktop {
+        display: block;
+        /* margin-bottom: 20px; */
+        width: 100%;
+
+    }
+
+    .container-menu-movil {
+        display: none;
+        margin-top: 20px;
+
+    }
+
+    .container-header-movil {
+        display: none;
+    }
+
+    .container-Dashboard {
+        display: flex;
+    }
+
+    .container-panelAdmin-dashboard {
+        width: 100%;
+        max-width: 900px;
+        /* o el valor que prefieras */
+        margin: 0 auto;
+
+    }
+
+    .panel-admin-desplegable {
+        margin-bottom: 2rem;
+    }
+
+
+
+}
+
+/* @media (min-width: 1024px) {
+    .container-panelAdmin-dashboard {
+        width: 1100px;
+    }
+} */
+
+/* 
+.contenido-dashboard {
+  width: 100%;
+  padding: 2rem;
+  min-height: 100%;
+  background-color: var(--bg);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+} */
+
+
+:root {
+    --card-bg: #ffffff;
+    --text-color: #1e1e1e;
+    --borde: #ccc;
+    --border-color: #dcdcdc;
+    --btn-hover-bg: #f0f0f0;
+    --btn-hover-text: #000000;
+}
+
+[data-theme="dark"] {
+    --card-bg: #1f1f1f;
+    --text-color: #f1f1f1;
+    --border-color: #3a3a3a;
+    --btn-hover-bg: #2c2c2c;
+    --btn-hover-text: #ffffff;
+    
+}

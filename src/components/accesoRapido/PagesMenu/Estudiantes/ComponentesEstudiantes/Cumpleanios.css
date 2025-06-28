@@ -1,0 +1,136 @@
+.container-contenido-meses-cumpleaños {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+.title-cumpleaños {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 20px 0px;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.dark .title-cumpleaños {
+    color: #f9fafb;
+    border-bottom: 2px solid #4b5563;
+}
+.dropdown-meses {
+    position: relative;
+    display: inline-block;
+}
+
+.boton-mes {
+    background-color: var(--card-bg, #f9fafb);
+    color: var(--text, #111827);
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border-color, #e5e7eb);
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.dark .boton-mes {
+    background-color: #1f2937;
+    color: #f9fafb;
+    border-color: #4b5563;
+}
+
+.lista-meses {
+    position: absolute;
+    margin-top: 0.25rem;
+    padding: 0;
+    list-style: none;
+    background-color: var(--card-bg, #ffffff);
+    border: 1px solid var(--border-color, #e5e7eb);
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.dark .lista-meses {
+    background-color: #1f2937;
+    color: #f9fafb;
+    border-color: #4b5563;
+}
+
+.lista-meses li {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.lista-meses li:hover {
+    background-color: #f3f4f6;
+}
+
+.dark .lista-meses li:hover {
+    background-color: #374151;
+}
+
+.tabla-cumpleaños-container {
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 1px solid var(--border-color, #e5e7eb);
+    background-color: var(--card-bg, #f9fafb);
+    padding: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.dark .tabla-cumpleaños-container {
+    background-color: #111827;
+    box-shadow: none;
+    border: 1px solid #374151;
+}
+
+.tabla-cumpleaños {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden;
+    color: #111827;
+}
+
+.tabla-cumpleaños th,
+.tabla-cumpleaños td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #e5e7eb;
+    text-align: center;
+}
+
+.tabla-cumpleaños th {
+    background-color: #f9fafb;
+    color: #374151;
+    font-weight: 600;
+}
+
+.dark .tabla-cumpleaños th {
+    background-color: #2d3748;
+    color: #f9fafb;
+}
+
+.tabla-cumpleaños td {
+    color: #374151;
+}
+
+.dark .tabla-cumpleaños td {
+    border-bottom: 1px solid #4b5563;
+    color: #e4e4e4;
+}
+
+.tabla-cumpleaños tr:nth-child(even) {
+    background-color: #f3f4f6;
+}
+
+.dark .tabla-cumpleaños tr:nth-child(even) {
+    background-color: #1f2937;
+}

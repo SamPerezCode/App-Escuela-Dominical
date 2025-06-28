@@ -1,0 +1,105 @@
+.dropdown-menu {
+    position: absolute;
+    top: 45px;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    min-width: 180px;
+    z-index: 100;
+    text-align: left;
+    color: #333;
+}
+
+.dropdown-menu p {
+    margin: 4px 0;
+    color: inherit;
+}
+
+.dropdown-menu .user-role {
+    font-size: 0.85em;
+    color: #666;
+}
+
+.dropdown-menu hr {
+    margin: 10px 0;
+    border: none;
+    border-top: 1px solid #eee;
+}
+
+.dropdown-btn {
+    background: none;
+    border: none;
+    color: #1d4ed8;
+    cursor: pointer;
+    padding: 5px 0;
+    width: 100%;
+    text-align: left;
+    font-size: 0.95em;
+}
+
+.dropdown-btn:hover {
+    text-decoration: underline;
+}
+
+/* MODO OSCURO */
+.dark .dropdown-menu {
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    color: #f3f4f6;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.dark .dropdown-menu .user-role {
+    color: #9ca3af;
+}
+
+.dark .dropdown-menu hr {
+    border-top: 1px solid #555;
+}
+
+.dark .dropdown-btn {
+    color: #60a5fa; /* azul más suave para dark */
+}
+
+.dark .dropdown-btn:hover {
+    text-decoration: underline;
+}
+
+.avatar-iniciales {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #4a4a4a; /* puedes usar #333 o variable CSS para dark/light */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.2s;
+}
+
+.avatar-iniciales:hover {
+    transform: scale(1.05);
+}
+
+/* Modo oscuro */
+.dark .avatar-iniciales {
+    background-color: #fff; /* fondo blanco */
+    color: #000;            /* letra negra */
+}
+
+:root {
+    --avatar-bg: #4a4a4a;
+    --avatar-text: #ffffff;
+}
+
+body.dark {
+    --avatar-bg: #dddddd;
+    --avatar-text: #1a1a1a;
+}

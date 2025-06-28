@@ -1,0 +1,91 @@
+.celebraciones {
+    width: 100%;
+    padding: 2rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+.header-celebraciones {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 8px;
+}
+
+.title-celebraciones {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.title-celebraciones h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0;
+}
+
+.acciones-celebraciones {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.menu-icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.dropdown-opciones {
+    position: absolute;
+    top: 36px;
+    right: 0;
+    background-color: var(--card-bg, white);
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    list-style: none;
+    padding: 0.5rem 0;
+    min-width: 180px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+}
+
+.dropdown-opciones li {
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+    color: var(--text-color);
+    transition: background-color 0.2s;
+}
+
+.dropdown-opciones li:hover {
+    background-color: var(--btn-hover-bg, #f0f0f0);
+}
+
+.btn-volver {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--border-color, #ccc);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-volver:hover {
+    background-color: var(--btn-hover-bg);
+    color: var(--btn-hover-text);
+}
+
+.container-info-celebraciones {
+    margin-top: 1rem;
+}

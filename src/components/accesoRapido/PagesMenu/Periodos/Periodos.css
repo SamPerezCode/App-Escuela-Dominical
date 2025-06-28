@@ -1,0 +1,103 @@
+.title-periodos {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 20px 0px;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px; 
+}
+
+.dark .title-periodos {
+    color: #f9fafb;
+    border-bottom: 2px solid #4b5563;
+}
+
+.acciones-periodos {
+    display: flex;
+    align-items: center;
+    gap: 0px;
+    position: relative;
+}
+
+.btn-volver-periodo {
+    padding: 6px 12px;
+    background-color: var(--card-bg);
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #111827;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-volver-periodo:hover {
+    background-color: #f3f4f6;
+}
+
+.dark .btn-volver-periodo {
+    color: #111827;
+    border-color: #4b5563;
+    background-color: var(--card-bg);
+}
+
+.dark .btn-volver-periodo:hover {
+    background-color: #2d3748;
+}
+
+.menu-icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    filter: invert(0);
+}
+
+.dark .menu-icon {
+    filter: brightness(0) invert(1);
+}
+
+.dropdown-opciones {
+    position: absolute;
+    top: 32px;
+    right: 0;
+    background-color: white;
+    color: #1f2937;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    min-width: 180px;
+    z-index: 20;
+    padding: 6px 0;
+    list-style: none;
+}
+
+.dropdown-opciones li {
+    padding: 10px 16px;
+    cursor: pointer;
+}
+
+.dropdown-opciones li:hover {
+    background-color: #f3f4f6;
+}
+
+/* Dark mode */
+.dark .dropdown-opciones {
+    background-color: #2a2a2a;
+    color: #f3f4f6;
+    border-color: #444;
+}
+
+.dark .dropdown-opciones li:hover {
+    background-color: #374151;
+}
+
+/* Responsive: Ocultar botón volver en móvil */
+@media (max-width: 639px) {
+    .btn-volver-periodo {
+        display: none;
+    }
+}

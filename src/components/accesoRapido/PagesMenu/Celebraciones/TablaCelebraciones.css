@@ -1,0 +1,119 @@
+.tabla-celebraciones-container {
+    overflow-x: auto;
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: #f3f4f6;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e5e7eb;
+}
+
+/* Modo oscuro */
+.dark .tabla-celebraciones-container {
+    background-color: #111827;
+    box-shadow: none;
+    border: 1px solid #374151;
+}
+
+.tabla-celebraciones {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-family: sans-serif;
+    background-color: #ffffff;
+    color: #111827;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border-radius: 10px;
+}
+.nombre-celebracion {
+    cursor: pointer;
+    color: var(--link-color);
+    transition: color 0.2s, text-decoration 0.2s, transform 0.2s;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: underline;
+}
+
+.nombre-celebracion:hover {
+    color: var(--link-hover-color, var(--link-color));
+    transform: scale(1.03);
+    text-decoration: underline;
+}
+
+
+/* Esquinas redondeadas */
+.tabla-celebraciones thead th:first-child {
+    border-top-left-radius: 10px;
+}
+.tabla-celebraciones thead th:last-child {
+    border-top-right-radius: 10px;
+}
+.tabla-celebraciones tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+}
+.tabla-celebraciones tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+}
+
+.tabla-celebraciones thead {
+    background-color: #f3f4f6;
+}
+
+.tabla-celebraciones th,
+.tabla-celebraciones td {
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    text-align: center;
+}
+
+.tabla-celebraciones tr:nth-child(even) {
+    background-color: #f9fafb;
+}
+
+/* Modo oscuro tabla */
+.dark .tabla-celebraciones {
+    background-color: #1f2937;
+    color: #f9fafb;
+}
+
+.dark .tabla-celebraciones thead {
+    background-color: #374151;
+}
+
+.dark .tabla-celebraciones th,
+.dark .tabla-celebraciones td {
+    border-color: #4b5563;
+}
+
+.dark .tabla-celebraciones tr:nth-child(even) {
+    background-color: #2d3748;
+}
+
+/* Enlaces dentro de la tabla */
+.nombre-celebracion {
+    cursor: pointer;
+    color: var(--link-color);
+    transition: color 0.2s, text-decoration 0.2s;
+    font-weight: 500;
+}
+
+.nombre-celebracion:hover {
+    color: var(--link-hover-color, var(--link-color));
+    text-decoration: underline;
+}
+
+@media (min-width: 640px) {
+    .tabla-celebraciones {
+        min-width: 400px;
+    }
+}
+
+:root {
+    --link-color: #0077cc;
+    --link-hover-color: #005fa3;
+}
+
+[data-theme="dark"] {
+    --link-color: #66aaff;
+    --link-hover-color: #99cfff;
+}

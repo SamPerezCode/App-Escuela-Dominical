@@ -1,0 +1,168 @@
+.container-header {
+    width: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgb(199, 198, 198);
+    padding: 8px 25px;
+}
+
+.dark .container-header {
+    background-color: #2a2a2a;
+}
+
+.container-info-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+}
+
+#container-actionIcons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+}
+
+#container-PanelAdministrativo {
+    display: flex;
+}
+
+#container-PanelAdministrativo div {
+    width: 100px;
+}
+
+#mode {
+    width: 24px;
+    height: 24px;
+}
+
+.dark #mode {
+    filter: brightness(0) invert(1);
+}
+
+#avatar {
+    position: relative;
+}
+
+#avatar img {
+    width: 40px;
+    border-radius: 50px;
+}
+
+.container-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.container-logo img {
+    width: 40px;
+    border-radius: 50%;
+}
+
+.container-logo h1 {
+    font-weight: bold;
+}
+
+/* 🔍 Buscador global */
+.buscador-global {
+    display: none;
+    position: relative;
+}
+
+.buscador-global input {
+    padding: 8px;
+    width: 250px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 14px;
+}
+
+.buscador-global input:focus {
+    box-shadow: 0 0 0 2px #6093e5;
+    border-color: #3b82f6;
+}
+
+/* Solo visible desde 768px (sm en tailwind) */
+@media (min-width: 768px) {
+    .buscador-global {
+        display: block;
+    }
+}
+
+/* 🔽 Resultados del buscador */
+.resultados-busqueda {
+    position: absolute;
+    top: 38px;
+    left: 0;
+    width: 100%;
+    max-height: 250px;
+    overflow-y: auto;
+    background: white;
+    border: 1px solid #ccc;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    z-index: 10;
+    border-radius: 6px;
+}
+
+.resultados-busqueda li {
+    padding: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #1f2937; /* letras oscuras por defecto */
+}
+
+.resultados-busqueda li:hover {
+    background-color: #f3f4f6;
+}
+
+/* Estilos por tipo de resultado */
+.resultado-estudiante {
+    font-weight: normal;
+    color: #111827;
+}
+
+.resultado-seccion {
+    font-weight: 600;
+    color: #1d4ed8;
+}
+
+/* 🌙 Modo oscuro */
+body.dark .buscador-global input {
+    background-color: #1f2937;
+    color: #f3f4f6;
+    border-color: #4b5563;
+}
+
+body.dark .buscador-global input::placeholder {
+    color: #9ca3af;
+}
+
+body.dark .buscador-global input:focus {
+    box-shadow: 0 0 0 2px #60a5fa;
+    border-color: #60a5fa;
+}
+
+body.dark .resultados-busqueda {
+    background-color: #1f2937;
+    color: #f3f4f6;
+    border-color: #4b5563;
+}
+
+body.dark .resultados-busqueda li {
+    color: #f3f4f6;
+}
+
+body.dark .resultados-busqueda li:hover {
+    background-color: #587095;
+}
+
+body.dark .resultado-seccion {
+    color: #60a5fa;
+}

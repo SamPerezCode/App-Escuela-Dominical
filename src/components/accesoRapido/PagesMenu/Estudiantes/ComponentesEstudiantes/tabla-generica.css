@@ -1,0 +1,79 @@
+/* Contenedor */
+.tabla-generica-container {
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 1px solid var(--border-color, #e5e7eb);
+    background-color: var(--card-bg, #f9fafb);
+    padding: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.dark .tabla-generica-container {
+    border-color: #4b5563;
+    background-color: #1f2937;
+}
+
+/* Tabla */
+.tabla-generica {
+    width: 100%;
+    border-collapse: collapse; /* Importante: para que se vean los bordes internos */
+    font-size: 0.95rem;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.tabla-generica th,
+.tabla-generica td {
+    padding: 12px 16px;
+    border: 1px solid #e5e7eb; /* Aquí está el borde interno */
+    text-align: left;
+}
+
+.tabla-generica th {
+    background-color: #f9fafb;
+    color: #374151;
+    font-weight: 600;
+}
+
+.dark .tabla-generica th {
+    background-color: #2d3748;
+    color: #f9fafb;
+}
+
+.tabla-generica td {
+    color: #374151;
+    background-color: transparent; /* para que sea igual a la de Estudiantes */
+}
+
+.dark .tabla-generica td {
+    border-color: #4b5563;
+    color: #e4e4e4;
+}
+
+/* Hover fila */
+.tabla-generica tr:hover {
+    background-color: #f3f4f6;
+    cursor: pointer;
+}
+
+.dark .tabla-generica tr:hover {
+    background-color: #4a5568;
+}
+
+/* Nombre clickeable */
+.tabla-generica td.nombre-alumno {
+    color: #2563eb;
+    text-decoration: underline;
+}
+
+.tabla-generica td.nombre-alumno:hover {
+    color: #1d4ed8;
+}
+
+.dark .tabla-generica td.nombre-alumno {
+    color: #63b3ed;
+}
+
+.dark .tabla-generica td.nombre-alumno:hover {
+    color: #4299e1;
+}

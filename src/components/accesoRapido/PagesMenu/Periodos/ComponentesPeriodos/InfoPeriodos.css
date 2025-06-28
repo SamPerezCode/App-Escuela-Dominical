@@ -1,0 +1,218 @@
+/* Contenedor principal */
+.info-periodo {
+    padding: 20px;
+    background-color: var(--fondo-principal);
+    color: var(--texto-principal);
+    min-height: 100vh;
+}
+
+/* Header con estructura similar a cursos */
+.header-info-periodo {
+    margin-bottom: 1.5rem;
+}
+
+.title-info-periodo {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 20px 0px;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.dark .title-info-periodo {
+    color: #f9fafb;
+    border-bottom: 2px solid #4b5563;
+}
+
+.acciones-header-periodo {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.btn-volver {
+    padding: 6px 12px;
+    background-color: var(--card-bg);
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #111827;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-volver:hover {
+    background-color: var(--btn-hover-bg);
+}
+
+.dark .btn-volver {
+    color: #111827;
+    border-color: #4b5563;
+}
+
+.icono-menu {
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.dark .icono-menu {
+    filter: brightness(0) invert(1);
+}
+
+.dropdown-opciones {
+    position: absolute;
+    right: 0;
+    top: 36px;
+    background: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    list-style: none;
+    padding: 6px 0;
+    min-width: 170px;
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.dropdown-opciones li {
+    padding: 10px 16px;
+    cursor: pointer;
+}
+.dark .dropdown-opciones li {
+    color: white;
+}
+
+.dropdown-opciones li:hover {
+    background-color: var(--btn-hover-bg);
+    color: var(--btn-hover-text);
+}
+
+/* Botones de acciones del periodo */
+.acciones-periodo {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.btn-activar,
+.btn-cerrar {
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.btn-activar {
+    background-color: #28a745;
+}
+
+.btn-activar:hover {
+    opacity: 0.8;
+}
+
+.btn-cerrar {
+    background-color: #dc3545;
+}
+
+.btn-cerrar:hover {
+    opacity: 0.8;
+}
+
+.nombre-periodo {
+    background: none;
+    border: none;
+    color: var(--link-color, #0077cc);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.nombre-periodo:hover {
+    text-decoration: underline;
+    color: var(--link-hover-color, #005fa3);
+}
+
+.buscador-periodos {
+    margin-bottom: 1rem;
+}
+
+.buscador-periodos input {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 250px;
+}
+
+.dark .buscador-periodos input {
+    background-color: #1f2937;
+    color: #f1f1f1;
+    border: 1px solid #4b5563;
+}
+
+.nombre-periodo {
+    background: none;
+    border: none;
+    color: var(--link-color, #0077cc);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.nombre-periodo:hover {
+    text-decoration: underline;
+    color: var(--link-hover-color, #005fa3);
+}
+
+.paginacion-periodos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.paginacion-periodos button {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #111;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.paginacion-periodos button:hover:not(:disabled) {
+    background-color: #f3f4f6;
+}
+
+.paginacion-periodos button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.dark .paginacion-periodos button {
+    background-color: #1f2937;
+    color: #f1f1f1;
+    border: 1px solid #4b5563;
+}
+
+.dark .paginacion-periodos button:hover:not(:disabled) {
+    background-color: #374151;
+}
+
+@media (min-width: 640px) {
+    .title-info-periodo button {
+        margin-right: 0px;
+    }
+}

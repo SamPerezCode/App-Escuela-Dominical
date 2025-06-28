@@ -1,0 +1,235 @@
+.registro-estudiantes {
+    width: 100%;
+    padding: 2rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+.registro-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    
+}
+
+.registro-header h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--text-heading, var(--text));
+}
+
+/* Formulario */
+.registro-formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 800px;
+    background-color: var(--form-bg, transparent);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.campo-formulario {
+    display: flex;
+    flex-direction: column;
+}
+
+.campo-formulario label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--label-color, var(--text));
+}
+
+.campo-formulario input {
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    border: 1px solid var(--border-color, #ccc);
+    border-radius: 6px;
+    background-color: var(--input-bg, #fff);
+    color: var(--input-text, #000);
+    transition: border-color 0.2s;
+}
+
+.campo-formulario input:disabled {
+    background-color: var(--input-disabled-bg, #f1f1f1);
+    color: var(--input-disabled-text, #888);
+    border-style: dashed;
+}
+
+
+.btn-accion {
+    padding: 0.5rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+
+.btn-volver {
+    background-color: #aaa;
+    color: white;
+    padding: 0.5rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.btn-volver:hover {
+    background-color: #888;
+}
+
+
+.btn-accion.guardar {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn-accion.guardar:hover {
+    background-color: #45a049;
+}
+
+.btn-accion.cancelar {
+    background-color: #f0ad4e;
+    color: white;
+}
+
+.btn-accion.cancelar:hover {
+    background-color: #ec971f;
+}
+
+.btn-accion.editar {
+    background-color: #0077cc;
+    color: white;
+}
+
+.btn-accion.editar:hover {
+    background-color: #005fa3;
+}
+
+.btn-accion.eliminar {
+    background-color: #cc0000;
+    color: white;
+}
+
+.btn-accion.eliminar:hover {
+    background-color: #990000;
+}
+
+
+.acciones-bottom {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+.acciones-header-info-estudiante {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.dropdown-opciones {
+    position: absolute;
+    right: 0;
+    top: 36px;
+    /* Ajusta según altura del ícono */
+    background: var(--card-bg, #fff);
+    color: var(--text-color, #111);
+    border: 1px solid var(--border-color, #ccc);
+    border-radius: 8px;
+    list-style: none;
+    padding: 6px 0;
+    min-width: 170px;
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.dropdown-opciones li {
+    padding: 10px 16px;
+    cursor: pointer;
+}
+
+.dropdown-opciones li:hover {
+    background-color: var(--btn-hover-bg, #f3f4f6);
+    color: var(--btn-hover-text, var(--text-color));
+}
+
+[data-theme="dark"] .dropdown-opciones {
+    background: #1f2937;
+    border-color: #4b5563;
+    color: #f9fafb;
+}
+
+[data-theme="dark"] .dropdown-opciones li:hover {
+    background-color: #374151;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .registro-header {
+        /* flex-direction: column; */
+        /* align-items: flex-start; */
+        
+    }
+
+    .registro-formulario {
+        padding: 0;
+    }
+
+    .acciones-bottom {
+        /* flex-direction: column; */
+        align-items: stretch;
+    }
+    .acciones-header-info-estudiante {
+        justify-content: flex-end;
+    }
+}
+
+/* Modo oscuro (si usas [data-theme=dark] en el html/body) */
+[data-theme="dark"] .registro-estudiantes {
+    background-color: #1e1e1e;
+    color: #e4e4e4;
+}
+
+[data-theme="dark"] .campo-formulario input {
+    background-color: #2a2a2a;
+    color: #e4e4e4;
+    border-color: #444;
+}
+
+[data-theme="dark"] .campo-formulario input:disabled {
+    background-color: #333;
+    color: #aaa;
+}
+
+[data-theme="dark"] .btn-accion.editar {
+    background-color: #3399ff;
+}
+
+[data-theme="dark"] .btn-accion.eliminar {
+    background-color: #e74c3c;
+}
+
+[data-theme="dark"] .btn-accion.guardar {
+    background-color: #5cb85c;
+}
+
+[data-theme="dark"] .btn-accion.cancelar {
+    background-color: #f0ad4e;
+}
+
+[data-theme="dark"] .btn-volver {
+    background-color: #666;
+}

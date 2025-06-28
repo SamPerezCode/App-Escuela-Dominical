@@ -1,0 +1,176 @@
+#container-panelAdministrativo {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-width: 90%;
+    margin: auto;
+    gap: 10px;
+    background-color: #f8f9fa;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+
+#container-panelAdministrativo div {
+    width: 180px;
+    height: auto;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    border: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+/* .dark #panelAdministrativo img{
+    filter: brightness(0) invert(1);
+} */
+
+#container-panelAdministrativo img {
+    filter: brightness(0) invert(1);
+    transition: transform 0.3s ease;
+}
+#container-panelAdministrativo div:hover img {
+    transform: scale(1.3); /* o rotate(5deg) para girar un poco */
+
+}
+@keyframes pulseBadge {
+    0% {
+        transform: translate(30%, -30%) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(30%, -30%) scale(1.2);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translate(30%, -30%) scale(1);
+        opacity: 1;
+    }
+}
+
+.badge {
+    background-color: #dc2626;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: bold;
+    border-radius: 9999px;
+    padding: 2px 8px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(30%, -30%);
+    animation: pulseBadge 1s infinite ease-in-out;
+}
+
+
+
+#container-panelAdministrativo div {
+    position: relative;
+}
+
+
+#asistencia-semana {
+    background-color: #3B82F6;
+    color: white;
+    cursor: pointer;
+}
+
+#lecciones-semana {
+    background-color: #10B981;
+    color: white;
+    cursor: pointer;
+}
+
+#cumpleanos {
+    background-color: #F59E0B;
+    color: white;
+    cursor: pointer;
+}
+
+#ofrenda {
+    background-color: #EF4444;
+    color: white;
+    cursor: pointer;
+}
+
+#reporte-asistencia {
+    background-color: #6B7280;
+    color: white;
+    cursor: pointer;
+}
+
+/* Fondo y texto general en modo oscuro */
+html.dark #container-panelAdministrativo {
+    background-color: #1e1e2f;
+    color: #ddd;
+}
+
+/* Los div generales dentro mantienen fondo y texto transparentes o neutros para no tapar los colores */
+html.dark #container-panelAdministrativo div {
+    border: none;
+
+    color: white; /* texto en blanco para mejor contraste */
+}
+
+/* Mantener los colores originales de los div específicos */
+html.dark #asistencia-semana {
+    background-color: #3B82F6 !important; /* mantén el azul */
+    color: white;
+}
+
+html.dark #lecciones-semana {
+    background-color: #10B981 !important; /* verde */
+    color: white;
+}
+
+html.dark #cumpleanos {
+    background-color: #F59E0B !important; /* amarillo */
+    color: white;
+}
+
+html.dark #ofrenda {
+    background-color: #EF4444 !important; /* rojo */
+    color: white;
+}
+
+html.dark #reporte-asistencia {
+    background-color: #6B7280 !important; /* gris oscuro */
+    color: white;
+}
+
+
+html.dark #container-panelAdministrativo img {
+    filter: none !important;
+    transition: transform 0.3s ease;
+}
+.badge {
+  background-color: #dc2626;
+  color: white;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+}
+
+body.dark .badge {
+  background-color: #f87171;
+  color: #1f2937;
+}
+
+
+@media (min-width: 640px) {
+    #container-panelAdministrativo {
+        flex: 1;
+        margin-top: 10px;
+    }
+
+    #container-panelAdministrativo div {
+        gap: 10px;
+        margin: 10px 5px 10px 5px;
+    }
+}
