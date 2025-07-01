@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { useTheme } from "../../context/ThemeContext";
@@ -19,6 +19,8 @@ function Header({ user }) {
 
     const { alumnos, secciones } = buscar(texto);
 
+    const buscadorRef = useRef(null);
+
     const handleCerrarSesion = () => {
         logout();
         navigate("/login");
@@ -27,8 +29,20 @@ function Header({ user }) {
     const handleNavegar = (ruta) => {
         navigate(ruta);
         setTexto("");
-        setBuscadorAbierto(false); // Cierra después de buscar
+        setBuscadorAbierto(false);
     };
+
+    // ✅ Cierra el buscador si haces clic fuera
+    useEffect(() => {
+        const handleClickOutside = (e) => {
+            if (buscadorRef.current && !buscadorRef.current.contains(e.target)) {
+                setBuscadorAbierto(false);
+                setTexto("");
+            }
+        };
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
 
     return (
         <div className="container-header">
@@ -47,22 +61,24 @@ function Header({ user }) {
             </div>
 
             <div className="container-info-header">
-                {/* 🔍 Buscador modernizado */}
-                <div className={`buscador-modern ${buscadorAbierto ? "activo" : ""}`}>
-                    <button
-                        className="btn-lupa-modern"
-                        onClick={() => setBuscadorAbierto(!buscadorAbierto)}
-                    >
-                        <img src="/image/lupa.svg" alt="Buscar" />
-                    </button>
-
+                <div
+                    ref={buscadorRef}
+                    className={`buscador-expandible ${buscadorAbierto ? "activo" : ""}`}
+                >
                     <input
                         type="text"
                         placeholder="Buscar..."
                         value={texto}
                         onChange={(e) => setTexto(e.target.value)}
-                        className="input-modern"
+                        className="input-expandible"
                     />
+                    <button
+                        className="btn-lupa-inside"
+                        onClick={() => setBuscadorAbierto(!buscadorAbierto)}
+                        type="button"
+                    >
+                        <img src="/image/find.svg" alt="Buscar" />
+                    </button>
 
                     {texto && (
                         <ul className="resultados-busqueda">
@@ -72,7 +88,12 @@ function Header({ user }) {
                                 </li>
                             ))}
                             {alumnos.map((al) => (
-                                <li key={al.id} onClick={() => handleNavegar(`/dashboard/estudiantes/${al.id}`)}>
+                                <li
+                                    key={al.id}
+                                    onClick={() =>
+                                        handleNavegar(`/dashboard/estudiantes/${al.id}`)
+                                    }
+                                >
                                     Estudiante: {al.nombre}
                                 </li>
                             ))}
@@ -82,7 +103,6 @@ function Header({ user }) {
                         </ul>
                     )}
                 </div>
-
 
                 <div id="container-actionIcons">
                     <NotificationDropdown />

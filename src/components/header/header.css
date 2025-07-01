@@ -1,3 +1,4 @@
+/* === HEADER BASE === */
 .container-header {
     width: auto;
     display: flex;
@@ -34,15 +35,6 @@
     filter: brightness(0) invert(1);
 }
 
-#avatar {
-    position: relative;
-}
-
-#avatar img {
-    width: 40px;
-    border-radius: 50px;
-}
-
 .container-logo {
     display: flex;
     justify-content: center;
@@ -50,7 +42,6 @@
     gap: 5px;
 }
 
-/* ✅ Logos adaptativos */
 .logo-light {
     display: inline-block;
 }
@@ -76,130 +67,112 @@ html.dark .logo-dark {
     font-weight: bold;
 }
 
-/* 🔍 Buscador expandible modernizado */
+/* === CONTENEDOR === */
 .buscador-expandible {
     position: relative;
     display: flex;
     align-items: center;
-    transition: width 0.3s ease;
 }
 
-.btn-lupa {
-    background: #3b82f6;
-    border: none;
-    border-radius: 50%;
-    width: 36px;
-    height: 36px;
-    padding: 6px;
+/* === INPUT === */
+.buscador-expandible .input-expandible {
+    width: 40px;
+    height: 40px;
+    padding: 0 16px 0 40px;
+    /* deja espacio para la lupa dentro */
+    border-radius: 50px;
+    border: 1px solid #1f2937;
+    /* borde dark para modo claro */
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(6px);
+    color: #1f2937;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.btn-lupa img {
-    width: 20px;
-    height: 20px;
-    filter: brightness(0) invert(1);
-}
-
-.input-expandible {
-    width: 0;
-    opacity: 0;
-    border: none;
-    outline: none;
-    background: transparent;
-    color: var(--text-color);
-    margin-left: 0;
-    transition: width 0.3s ease, opacity 0.3s ease, margin 0.3s ease;
+    transition: width 0.4s ease, padding 0.3s ease, background 0.3s ease;
 }
 
 .buscador-expandible.activo .input-expandible {
     width: 200px;
-    opacity: 1;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    background: var(--card-bg);
-    padding: 6px 12px;
-    margin-left: 10px;
+    cursor: text;
 }
 
-body.dark .btn-lupa {
-    background: #374151;
+.buscador-expandible .input-expandible::placeholder {
+    color: #1f2937;
 }
 
-body.dark .input-expandible {
-    border-color: #4b5563;
-    background-color: #1f2937;
-    color: #f3f4f6;
+/* DARK MODE INPUT */
+body.dark .buscador-expandible .input-expandible {
+    border: 1px solid #4b5563;
+    background: rgba(31, 41, 55, 0.5);
+    color: #f9fafb;
 }
 
-body.dark .input-expandible::placeholder {
+body.dark .buscador-expandible .input-expandible::placeholder {
     color: #9ca3af;
 }
 
-/* 🔽 Resultados del buscador */
+/* === LUPA DENTRO === */
+.btn-lupa-inside {
+    position: absolute;
+    left: 12px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+}
+
+.btn-lupa-inside img {
+    width: 18px;
+    height: 18px;
+    filter: brightness(0);
+    /* lupa oscura modo claro */
+}
+
+body.dark .btn-lupa-inside img {
+    filter: brightness(0) invert(1);
+    /* lupa clara modo dark */
+}
+
+/* === RESULTADOS === */
 .resultados-busqueda {
     position: absolute;
-    top: 42px;
+    top: 50px;
     left: 0;
     width: 100%;
     max-height: 250px;
     overflow-y: auto;
-    background: var(--card-bg, white);
-    border: 1px solid #ccc;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    border-radius: 10px;
+    border: 1px solid #1f2937;
     list-style: none;
-    margin: 0;
-    padding: 0;
-    z-index: 10;
-    border-radius: 6px;
+    z-index: 100;
+    padding: 6px 0;
 }
 
 .resultados-busqueda li {
     padding: 8px 12px;
     cursor: pointer;
-    font-size: 14px;
     color: #1f2937;
 }
 
 .resultados-busqueda li:hover {
-    background-color: #f3f4f6;
+    background-color: rgba(0, 0, 0, 0.05);
 }
 
 body.dark .resultados-busqueda {
-    background-color: #1f2937;
-    border-color: #4b5563;
+    background: rgba(31, 41, 55, 0.95);
+    border: 1px solid #4b5563;
 }
 
 body.dark .resultados-busqueda li {
-    color: #f3f4f6;
+    color: #f9fafb;
 }
 
 body.dark .resultados-busqueda li:hover {
-    background-color: #374151;
-}
-
-.resultado-estudiante {
-    font-weight: normal;
-}
-
-.resultado-seccion {
-    font-weight: 600;
-    color: #1d4ed8;
-}
-
-body.dark .resultado-seccion {
-    color: #60a5fa;
-}
-
-@media (max-width: 767px) {
-
-    /* Versión móvil: muestra siempre la lupa */
-    .buscador-expandible .input-expandible {
-        width: 0;
-    }
-
-    .buscador-expandible.activo .input-expandible {
-        width: 150px;
-    }
+    background-color: rgba(55, 65, 81, 0.5);
 }
