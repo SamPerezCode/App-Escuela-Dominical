@@ -11,6 +11,10 @@ import { MaestrosProvider } from './context/MaestrosContext.jsx';
 import { CursosProvider } from './context/CursosContext.jsx';
 import { CelebracionesProvider } from './context/CelebracionesContext.jsx';
 import PeriodosProvider from './context/PeriodosContext.jsx';
+import { CursoPeriodoProvider } from './context/CursoPeriodoContext.jsx';
+import { GruposProvider } from './context/GruposContext.jsx';
+
+
 
 
 
@@ -27,7 +31,11 @@ createRoot(document.getElementById('root')).render(
                 <CursosProvider>
                   <CelebracionesProvider>
                     <PeriodosProvider>
-                      <App />
+                      <CursoPeriodoProvider>
+                        <GruposProvider>
+                          <App />
+                        </GruposProvider>
+                      </CursoPeriodoProvider>
                     </PeriodosProvider>
                   </CelebracionesProvider>
                 </CursosProvider>

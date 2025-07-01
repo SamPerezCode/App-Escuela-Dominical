@@ -1,0 +1,134 @@
+.modal-asociar-grupo__backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2px);
+    z-index: 50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-asociar-grupo__content {
+    background: var(--card-bg, #ffffff);
+    border-radius: 12px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    color: #111827;
+    transition: transform 0.3s ease;
+}
+
+.dark .modal-asociar-grupo__content {
+    background: #1f2937;
+    color: #f9fafb;
+}
+
+.modal-asociar-grupo__content h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.modal-asociar-grupo__content p {
+    margin: 0.25rem 0 1rem;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.modal-asociar-grupo__content label {
+    font-weight: 500;
+}
+
+.modal-asociar-grupo__content select {
+    width: 100%;
+    padding: 0.6rem;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    background: #fff;
+}
+
+.dark .modal-asociar-grupo__content select {
+    background: #374151;
+    color: #f9fafb;
+    border: 1px solid #4b5563;
+}
+
+.modal-asociar-grupo__maestros {
+    margin-bottom: 1rem;
+}
+
+.modal-asociar-grupo__maestros p {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.modal-asociar-grupo__checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.4rem;
+    font-size: 0.95rem;
+    background: var(--input-bg, #f9fafb);
+    padding: 0.35rem 0.5rem;
+    border-radius: 4px;
+    transition: background 0.2s ease;
+}
+
+.modal-asociar-grupo__checkbox:hover {
+    background: var(--hover-bg, #f3f4f6);
+}
+
+.dark .modal-asociar-grupo__checkbox {
+    background: #374151;
+}
+
+.modal-asociar-grupo__acciones {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    margin-top: 1.2rem;
+}
+
+.btn-guardar,
+.btn-cerrar {
+    border: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.1s ease;
+}
+
+.btn-guardar {
+    background: #3b82f6;
+    color: #fff;
+}
+
+.btn-guardar:hover {
+    background: #2563eb;
+    transform: scale(1.03);
+}
+
+.btn-cerrar {
+    background: #ef4444;
+    color: #fff;
+}
+
+.btn-cerrar:hover {
+    background: #dc2626;
+    transform: scale(1.03);
+}
+
+/* Responsivo extra */
+@media (max-width: 480px) {
+    .modal-asociar-grupo__content {
+        padding: 1.5rem;
+        max-width: 90%;
+    }
+}

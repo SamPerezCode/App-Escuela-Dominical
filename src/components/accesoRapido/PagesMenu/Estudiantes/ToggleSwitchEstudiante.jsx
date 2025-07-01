@@ -1,5 +1,5 @@
 import React from 'react';
-import './ToggleSwitch.css';
+import './ToggleSwitchEstudiante.css';
 
 function ToggleSwitch({ isActive, onToggle }) {
     return (

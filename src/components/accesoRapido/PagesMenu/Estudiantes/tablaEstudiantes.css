@@ -17,7 +17,7 @@
 }
 
 .tabla-estudiantes {
-    width: 100%;
+    width: auto;
     border-collapse: separate;
     /* Necesario para aplicar bordes redondeados */
     border-spacing: 0;

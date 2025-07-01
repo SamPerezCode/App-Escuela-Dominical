@@ -45,7 +45,6 @@ function Periodos() {
                             ←  Regresar
                         </button>
 
-                        {/* Menú de opciones */}
                         <img
                             src="/image/menu-vertical.svg"
                             alt="Opciones"

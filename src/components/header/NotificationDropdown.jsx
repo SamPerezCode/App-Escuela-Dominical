@@ -64,7 +64,7 @@ function NotificationDropdown() {
     return (
         <div className="notification-wrapper" ref={dropdownRef}>
             <div
-                className="notification"
+                className={`notification ${!vistas && notificaciones.length > 0 ? "tiene-notificaciones" : ""}`}
                 onClick={handleVerNotificaciones}
                 style={{ cursor: "pointer", position: "relative" }}
             >

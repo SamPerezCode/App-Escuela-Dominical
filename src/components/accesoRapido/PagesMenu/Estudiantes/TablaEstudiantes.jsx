@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { eliminarAlumno } from "../../../../api/alumnos/eliminarAlumno";
 import { useAlumnos } from "../../../../context/AlumnosContext";
-import ToggleSwitch from "./ToggleSwitch";
+import ToggleSwitch from "./ToggleSwitchEstudiante";
 import "./tablaEstudiantes.css";
 
 

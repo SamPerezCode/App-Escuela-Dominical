@@ -1,12 +1,17 @@
+/* === Base container === */
 .menu-principal {
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    padding: 10px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    /* Borde igual que las cards */
+    border-radius: 12px;
+    padding: 12px;
     max-width: 90%;
     margin: auto;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: none;
+    /* Igual que cards: sin sombra exagerada */
 }
 
+/* Lista limpia */
 .menu-principal ul {
     list-style: none;
     padding: 0;
@@ -14,54 +19,66 @@
 }
 
 .menu-principal li {
-    margin-bottom: 5px;
+    margin-bottom: 6px;
 }
 
+/* Link estilo botón-card */
 .menu-principal a {
     display: flex;
-    background-color: #e5e7eb;
-    color: #111827;
+    align-items: center;
+    background: var(--summary-bg);
+    color: var(--text-color);
     text-decoration: none;
-    padding: 5px 16px;
-    margin-left: 5px;
-    border-radius: 6px;
+    padding: 10px 16px;
+    border-radius: 8px;
     font-weight: 500;
-    transition: background-color 0.3s;
+    transition: background 0.3s, color 0.3s;
 }
 
 .menu-principal a img {
-    padding-right: 20px;
+    margin-right: 12px;
+    width: 20px;
+    height: 20px;
 }
 
 .menu-principal a:hover {
-    background-color: #d1d5db;
+    background: var(--hover-bg);
 }
 
-/* Modo oscuro */
-html.dark .menu-principal {
-    background-color: #1e1e2f; /* fondo oscuro */
-    box-shadow: none;
+/* === Modo claro coherente === */
+html:not(.dark) .menu-principal {
+    background-color: #ffffff;
+    /* Cards light: #ffffff */
+    border: 1px solid #e5e7eb;
+    /* Mismo borde claro */
 }
 
-html.dark .menu-principal a {
-    background-color: #3b3f5c; /* fondo de los links en modo oscuro */
-    color: #e0e0e0; /* texto claro */
+html:not(.dark) .menu-principal a {
+    background-color: #f3f4f6;
+    /* Gris muy suave igual que cards light */
+    color: #111827;
 }
 
-html.dark .menu-principal a:hover {
-    background-color: #505673;
+html:not(.dark) .menu-principal a:hover {
+    background-color: #e5e7eb;
+    /* Hover light igual que cards */
+}
+
+html.dark .menu-principal a img,
+html:not(.dark) .menu-principal a img {
+    filter: none;
+    /* Dark ya lo usa invert, claro sin filtro */
 }
 
 html.dark .menu-principal a img {
-    filter: brightness(0) invert(1); /* invertir para que se vean bien en fondo oscuro */
+    filter: brightness(0) invert(1);
 }
 
+/* Responsive */
 @media (min-width: 640px) {
     .menu-principal {
         flex: 1;
         min-width: 250px;
         max-width: 100%;
     }
-
-
 }

@@ -12,7 +12,7 @@
 }
 
 .title-info-periodo {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 600;
     color: #1a1a1a;
     margin: 20px 0px;
@@ -21,7 +21,17 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+}
+
+.title-info-periodo h1 {
+    flex: 1 1 auto;
+    /* El título ocupa todo el ancho libre */
+    min-width: 0;
+    /* Evita desbordes */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .dark .title-info-periodo {
@@ -33,6 +43,7 @@
     display: flex;
     align-items: center;
     position: relative;
+    flex-shrink: 0;
 }
 
 .btn-volver {
@@ -85,6 +96,7 @@
     padding: 10px 16px;
     cursor: pointer;
 }
+
 .dark .dropdown-opciones li {
     color: white;
 }
@@ -209,6 +221,83 @@
 
 .dark .paginacion-periodos button:hover:not(:disabled) {
     background-color: #374151;
+}
+
+/* InfoPeriodos.css */
+.info-periodo__cursos {
+    margin-top: 2rem;
+}
+
+.info-periodo__cursos-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #111827;
+}
+
+.dark .info-periodo__cursos-title {
+    color: #f9fafb;
+}
+
+.info-periodo__cursos-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    
+}
+
+/* CardCursoPeriodo.css */
+.card-curso-periodo {
+    background: var(--card-bg, #fff);
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1rem;
+    width: 250px;
+}
+
+.dark .card-curso-periodo {
+    background: #1f2937;
+    border-color: #374151;
+}
+
+.card-curso-periodo__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-curso-periodo__header h3 {
+    font-size: 1.2rem;
+    color: #111827;
+}
+
+.dark .card-curso-periodo__header h3 {
+    color: #f9fafb;
+}
+
+.card-curso-periodo__edad {
+    margin: 0.5rem 0;
+    color: #4b5563;
+}
+
+.dark .card-curso-periodo__edad {
+    color: #d1d5db;
+}
+
+.card-curso-periodo__btn-asociar {
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+.card-curso-periodo__btn-asociar:hover {
+    background-color: #2563eb;
+}
+
+.dark .card-curso-periodo__btn-asociar {
+    background-color: #2563eb;
 }
 
 @media (min-width: 640px) {

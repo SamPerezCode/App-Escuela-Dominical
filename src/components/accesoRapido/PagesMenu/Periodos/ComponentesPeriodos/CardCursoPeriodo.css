@@ -1,0 +1,177 @@
+/* Contenedor base */
+.card-curso-periodo {
+  background: var(--card-bg, #ffffff);
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1rem;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex-grow: 1;
+}
+
+.dark .card-curso-periodo {
+  background: #111827;
+  border-color: #374151;
+}
+
+/* Header */
+.card-curso-periodo__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-curso-periodo__header h3 {
+  font-size: 1.1rem;
+  margin: 0;
+  color: #111827;
+}
+
+.dark .card-curso-periodo__header h3 {
+  color: #f9fafb;
+}
+
+/* Edad y alumnos */
+.card-curso-periodo__edad,
+.card-curso-periodo__cantidad {
+  font-size: 0.9rem;
+  margin: 0;
+  color: #374151;
+}
+
+.dark .card-curso-periodo__edad,
+.dark .card-curso-periodo__cantidad {
+  color: #d1d5db;
+}
+
+/* Lista de grupos celebraciones */
+.card-curso-periodo__grupos {
+  margin: 0.5rem 0;
+}
+
+.grupo-item {
+  background: var(--card-bg, #ffffff);
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.8rem;
+  position: relative;
+}
+
+.dark .grupo-item {
+  background: #1f2937;
+  border-color: #374151;
+}
+
+.grupo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.grupo-header strong {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #111827;
+}
+
+.dark .grupo-header strong {
+  color: #f9fafb;
+}
+
+.grupo-item ul {
+  list-style: disc inside;
+  margin: 0;
+  padding: 0;
+}
+
+.grupo-item li {
+  font-size: 0.85rem;
+  color: #374151;
+}
+
+.dark .grupo-item li {
+  color: #d1d5db;
+}
+
+/* Estado cuando no hay grupos */
+.sin-grupos {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.dark .sin-grupos {
+  color: #9ca3af;
+}
+
+/* Botón */
+.card-curso-periodo__btn-asociar {
+  margin-top: auto;
+  padding: 0.5rem;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.card-curso-periodo__btn-asociar:hover {
+  background-color: #2563eb;
+}
+
+/* === Menu de 3 puntos */
+.grupo-menu {
+  position: relative;
+}
+
+.icono-menu {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.dark .icono-menu {
+  filter: brightness(0) invert(1);
+}
+
+.dropdown-opciones {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  background: var(--card-bg, #ffffff);
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  list-style: none;
+  padding: 6px 0;
+  min-width: 160px;
+  z-index: 100;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.dark .dropdown-opciones {
+  background: #1f2937;
+  border: 1px solid #4b5563;
+}
+
+.dropdown-opciones li {
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #111827;
+}
+
+.dark .dropdown-opciones li {
+  color: #f9fafb;
+}
+
+.dropdown-opciones li:hover {
+  background: #f3f4f6;
+}
+
+.dark .dropdown-opciones li:hover {
+  background: #374151;
+}

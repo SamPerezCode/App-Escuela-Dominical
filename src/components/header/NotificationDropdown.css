@@ -7,7 +7,8 @@
     top: 45px;
     right: 0;
     background-color: white;
-    color: #1f2937; /* Texto en modo claro */
+    color: #1f2937;
+    /* Texto en modo claro */
     border: 1px solid #ddd;
     padding: 12px;
     border-radius: 8px;
@@ -36,7 +37,8 @@
 /* MODO OSCURO */
 .dark .notification-dropdown {
     background-color: #2a2a2a;
-    color: #f3f4f6; /* Texto claro */
+    color: #f3f4f6;
+    /* Texto claro */
     border: 1px solid #444;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
 }
@@ -64,13 +66,14 @@
     position: absolute;
     top: -4px;
     right: -4px;
-    background-color: red;
-    color: white;
-    font-size: 12px;
-    padding: 2px 6px;
+    width: 12px;
+    height: 12px;
+    background: radial-gradient(circle, #ff4d4f 0%, #d32f2f 100%);
+    border: 2px solid white;
+    /* Borde claro para separarlo del fondo */
     border-radius: 50%;
-    font-weight: bold;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 8px rgba(255, 77, 79, 0.6);
+    animation: pulse 1.5s infinite;
 }
 
 /* 🌙 DARK MODE - badge */
@@ -81,8 +84,20 @@
     border-color: #2a2a2a;
     box-shadow: 0 0 4px rgba(255, 255, 255, 0.4);
 }
-@keyframes campana {
-    0%, 100% { transform: rotate(0deg); }
-    25% { transform: rotate(10deg); }
-    75% { transform: rotate(-10deg); }
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 8px rgba(255, 77, 79, 0.6);
+    }
+
+    50% {
+        transform: scale(1.2);
+        box-shadow: 0 0 12px rgba(255, 77, 79, 0.8);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 8px rgba(255, 77, 79, 0.6);
+    }
 }

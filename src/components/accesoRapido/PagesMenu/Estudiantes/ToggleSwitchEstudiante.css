@@ -45,7 +45,7 @@ input:checked+.slider-toggle {
 }
 
 input:checked+.slider-toggle:before {
-    transform: translateX(15px);
+    transform: translateX(18px);
     /* se mueve a la derecha */
 }
 
