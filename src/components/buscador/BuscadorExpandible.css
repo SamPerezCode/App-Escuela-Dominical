@@ -1,0 +1,112 @@
+/* === CONTENEDOR === */
+.buscador-expandible {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* === INPUT === */
+.buscador-expandible .input-expandible {
+    width: 30px;
+    height: 35px;
+    padding: 0 1px 0 35px;
+    border-radius: 60px;
+    border: 1px solid var(--border-color);
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(6px);
+    color: var(--text-color);
+    cursor: pointer;
+    transition: width 0.4s ease, padding 0.3s ease, background 0.3s ease, border 0.3s ease;
+}
+
+.buscador-expandible.activo .input-expandible {
+    width: 200px;
+    cursor: text;
+}
+
+html.dark .buscador-expandible .input-expandible {
+    background: rgba(31, 41, 55, 0.5);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+}
+
+.buscador-expandible .input-expandible::placeholder {
+    color: var(--text-color);
+}
+
+/* DARK MODE INPUT */
+html.dark .buscador-expandible .input-expandible {
+    background: rgba(31, 41, 55, 0.4);
+    border: 1px solid #9ca3af;
+    /* más claro para dark */
+}
+
+html.dark .buscador-expandible .input-expandible::placeholder {
+    color: #9ca3af;
+}
+
+
+/* === LUPA DENTRO === */
+.btn-lupa-inside {
+    position: absolute;
+    left: 8px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.btn-lupa-inside img {
+    width: 20px;
+    height: 20px;
+    filter: brightness(0);
+    /* modo claro */
+}
+
+html.dark .btn-lupa-inside img {
+    filter: brightness(0) invert(1);
+}
+
+/* === RESULTADOS === */
+.resultados-busqueda {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    max-height: 250px;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    border-radius: 10px;
+    border: 1px solid #1f2937;
+    list-style: none;
+    z-index: 100;
+    padding: 6px 0;
+}
+
+.resultados-busqueda li {
+    padding: 8px 12px;
+    cursor: pointer;
+    color: #1f2937;
+}
+
+.resultados-busqueda li:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+html.dark .resultados-busqueda {
+    background: rgba(31, 41, 55, 0.95);
+    border: 1px solid #4b5563;
+}
+
+html.dark .resultados-busqueda li {
+    color: #f9fafb;
+}
+
+html.dark .resultados-busqueda li:hover {
+    background-color: rgba(55, 65, 81, 0.5);
+}

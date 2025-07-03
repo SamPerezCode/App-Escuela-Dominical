@@ -12,6 +12,7 @@ export const BuscadorProvider = ({ children }) => {
         { nombre: "Cumpleaños", ruta: "/dashboard/cumpleanios" },
         { nombre: "Periodos", ruta: "/dashboard/periodos" },
         { nombre: "Maestros", ruta: "/dashboard/maestros" },
+        { nombre: "Cursos", ruta: "/dashboard/cursos" }
     ];
 
     const buscar = (termino) => {

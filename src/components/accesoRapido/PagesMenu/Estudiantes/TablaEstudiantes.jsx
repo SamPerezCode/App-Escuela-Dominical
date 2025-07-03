@@ -5,7 +5,6 @@ import { useAlumnos } from "../../../../context/AlumnosContext";
 import ToggleSwitch from "./ToggleSwitchEstudiante";
 import "./tablaEstudiantes.css";
 
-
 function TablaEstudiantes({ estudiantes }) {
     const navigate = useNavigate();
     const { eliminarAlumnoDelContexto } = useAlumnos();
@@ -16,7 +15,6 @@ function TablaEstudiantes({ estudiantes }) {
     const estudiantesPorPagina = 10;
 
     useEffect(() => {
-        // Inicializa estado de activación local
         const estadoInicial = {};
         estudiantes.forEach((est) => {
             estadoInicial[est.id] = est.estado === "activo";
@@ -29,7 +27,6 @@ function TablaEstudiantes({ estudiantes }) {
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
     }, []);
-
 
     useEffect(() => {
         setPaginaActual(1);
@@ -57,7 +54,6 @@ function TablaEstudiantes({ estudiantes }) {
         }
     };
 
-
     return (
         <div className="tabla-estudiantes-container">
             <div className="buscador-estudiantes">
@@ -78,7 +74,7 @@ function TablaEstudiantes({ estudiantes }) {
                         <th>Acudiente</th>
                         <th>Tel. Acudiente</th>
                         <th>Dirección</th>
-                        {!esMovil && <th>Acciones</th>} {/* ✅ solo si no es móvil */}
+                        {!esMovil && <th>Acciones</th>}
                     </tr>
                 </thead>
                 <tbody>
@@ -97,7 +93,6 @@ function TablaEstudiantes({ estudiantes }) {
                                 <td>{est.acudiente}</td>
                                 <td>{est.acudiente_telefono}</td>
                                 <td>{est.direccion}</td>
-
                                 {!esMovil && (
                                     <td>
                                         <div className="acciones-estudiante">
@@ -125,12 +120,11 @@ function TablaEstudiantes({ estudiantes }) {
                                         </div>
                                     </td>
                                 )}
-
                             </tr>
                         ))
                     ) : (
                         <tr>
-                            <td colSpan="7" style={{ textAlign: "center" }}>
+                            <td colSpan={esMovil ? "6" : "7"} style={{ textAlign: "center" }}>
                                 No hay estudiantes encontrados.
                             </td>
                         </tr>

@@ -7,8 +7,8 @@ function ToggleSwitch({ isActive, onToggle }) {
             <input
                 type="checkbox"
                 checked={isActive}
-                onChange={onToggle} // por ahora no hace nada
-            // disabled // 👈 Deshabilitado porque aún no hay backend
+                onChange={onToggle}
+
             />
             <span className="slider-toggle round"></span>
         </label>

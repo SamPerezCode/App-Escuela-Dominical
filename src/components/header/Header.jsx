@@ -1,9 +1,10 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { useTheme } from "../../context/ThemeContext";
 import { useBuscador } from "../../context/BuscadorContext";
 
+import BuscadorExpandible from "../buscador/BuscadorExpandible";
 import "../header/header.css";
 import UserDropdown from "../header/UserDropdown";
 import NotificationDropdown from "./NotificationDropdown";
@@ -16,10 +17,17 @@ function Header({ user }) {
 
     const [texto, setTexto] = useState("");
     const [buscadorAbierto, setBuscadorAbierto] = useState(false);
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
 
     const { alumnos, secciones } = buscar(texto);
 
-    const buscadorRef = useRef(null);
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 640);
+        };
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
     const handleCerrarSesion = () => {
         logout();
@@ -31,18 +39,6 @@ function Header({ user }) {
         setTexto("");
         setBuscadorAbierto(false);
     };
-
-    // ✅ Cierra el buscador si haces clic fuera
-    useEffect(() => {
-        const handleClickOutside = (e) => {
-            if (buscadorRef.current && !buscadorRef.current.contains(e.target)) {
-                setBuscadorAbierto(false);
-                setTexto("");
-            }
-        };
-        document.addEventListener("mousedown", handleClickOutside);
-        return () => document.removeEventListener("mousedown", handleClickOutside);
-    }, []);
 
     return (
         <div className="container-header">
@@ -57,29 +53,17 @@ function Header({ user }) {
                     src="/image/cruz-blanco.png"
                     alt="Logo-LGC Dark"
                 />
-                <h1>EB LGC</h1>
+                {(!isMobile || !buscadorAbierto) && <h1>EB LGC</h1>}
             </div>
 
             <div className="container-info-header">
-                <div
-                    ref={buscadorRef}
-                    className={`buscador-expandible ${buscadorAbierto ? "activo" : ""}`}
+                <BuscadorExpandible
+                    placeholder="Buscar..."
+                    texto={texto}
+                    setTexto={setTexto}
+                    isOpen={buscadorAbierto}
+                    setIsOpen={setBuscadorAbierto}
                 >
-                    <input
-                        type="text"
-                        placeholder="Buscar..."
-                        value={texto}
-                        onChange={(e) => setTexto(e.target.value)}
-                        className="input-expandible"
-                    />
-                    <button
-                        className="btn-lupa-inside"
-                        onClick={() => setBuscadorAbierto(!buscadorAbierto)}
-                        type="button"
-                    >
-                        <img src="/image/find.svg" alt="Buscar" />
-                    </button>
-
                     {texto && (
                         <ul className="resultados-busqueda">
                             {secciones.map((sec) => (
@@ -102,21 +86,26 @@ function Header({ user }) {
                             )}
                         </ul>
                     )}
-                </div>
+                </BuscadorExpandible>
 
                 <div id="container-actionIcons">
-                    <NotificationDropdown />
+                    {(!isMobile || !buscadorAbierto) && (
+                        <>
+                            <NotificationDropdown />
 
-                    <div id="mode">
-                        <button onClick={toggleDarkMode}>
-                            {isDarkMode ? (
-                                <img src="/image/mode-light.svg" alt="modo claro" />
-                            ) : (
-                                <img src="/image/mode-dark.svg" alt="modo oscuro" />
-                            )}
-                        </button>
-                    </div>
+                            <div id="mode">
+                                <button onClick={toggleDarkMode}>
+                                    {isDarkMode ? (
+                                        <img src="/image/mode-light.svg" alt="modo claro" />
+                                    ) : (
+                                        <img src="/image/mode-dark.svg" alt="modo oscuro" />
+                                    )}
+                                </button>
+                            </div>
+                        </>
+                    )}
 
+                    {/* ✅ Siempre visible: UserDropdown */}
                     <UserDropdown user={user} onCerrarSesion={handleCerrarSesion} />
                 </div>
             </div>

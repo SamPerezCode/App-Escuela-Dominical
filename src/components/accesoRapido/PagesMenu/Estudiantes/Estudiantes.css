@@ -1,4 +1,3 @@
-
 .title-estudiantes {
   font-size: 2rem;
   font-weight: 600;
@@ -10,7 +9,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 12px;
-  flex-wrap: nowrap; /* ❗ Previene que el botón se baje en pantallas pequeñas */
+  flex-wrap: nowrap;
   position: relative;
 }
 
@@ -21,7 +20,8 @@
 
 .btn-registrar-estudiante {
   padding: 6px 12px;
-  background-color: #10b981; /* verde */
+  background-color: #10b981;
+  /* verde */
   color: white;
   border: none;
   border-radius: 6px;
@@ -33,6 +33,7 @@
 
 .btn-registrar-estudiante:hover {
   background-color: #059669;
+  color: #111827 !important;
 }
 
 .dark .btn-registrar-estudiante {
@@ -41,41 +42,44 @@
 }
 
 .dark .btn-registrar-estudiante:hover {
-  background-color: #065f46;
+  background-color: #59b79c;
+  color: #111827 !important;
+
 }
 
 .btn-volver-estudiante {
   padding: 6px 12px;
   background-color: var(--card-bg);
   border: 1px solid #ccc;
-  border-radius: 6px ;
+  border-radius: 6px;
   font-family: inherit !important;
   font-size: 14px;
   color: #111827;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  height: 33px; 
-  box-sizing: border-box;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  height: 33px;
   display: flex;
   align-items: center;
   margin-right: 0 !important;
-    
 }
 
 .btn-volver-estudiante:hover {
-    background-color: #f3f4f6;
+  background-color: #4c4d50 !important;
+  color: #dedede !important;
+
 }
 
 .dark .btn-volver-estudiante {
-    color: #111827;
-    border-color: #4b5563;
-    background-color: var(--card-bg);
+  color: #f9fafb;
+  border-color: #4b5563;
+  background-color: var(--card-bg);
 }
 
 .dark .btn-volver-estudiante:hover {
-    background-color: #898a8d;
-}
+  background-color: var(--text-color) !important;
+  color: #111827 !important;
 
+}
 
 .acciones-header {
   display: flex;
@@ -116,7 +120,7 @@
 }
 
 .dropdown-opciones li:hover {
-  background-color: #f3f4f6;
+  background-color: #f3f4f6 !important;
 }
 
 /* Modo oscuro */
@@ -127,24 +131,25 @@
 }
 
 .dark .dropdown-opciones li:hover {
-  background-color: #374151;
+  background-color: #374151 !important;
 }
 
 .btn-volver-estudiante,
 .btn-registrar-estudiante {
-  font-family: inherit; /* o la que estés usando, por ejemplo: 'Inter', sans-serif */
+  font-family: inherit;
   font-size: 14px;
-  font-weight: 600; /* uniforme */
+  font-weight: 600;
   line-height: 1.5;
 }
 
 
 @media (max-width: 640px) {
-    
-    .btn-volver-estudiante {
-      display: none;
-    }
-    .btn-registrar-estudiante {
-      display: none;
-    }
+
+  .btn-volver-estudiante {
+    display: none;
+  }
+
+  .btn-registrar-estudiante {
+    display: none;
+  }
 }
