@@ -1,4 +1,78 @@
-/* Contenedor de tabla */
+.container-candidatos-promocionar {
+    width: 100%;
+    padding: 2rem;
+    box-sizing: border-box;
+    background-color: var(--bg);
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.header-candidatos {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 20px 0px;
+
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+
+
+.dark .header-candidatos {
+    color: #f9fafb;
+    border-bottom: 2px solid #4b5563;
+}
+
+.acciones-estudiantes {
+    display: flex;
+    align-items: center;
+    gap: 0px;
+    position: relative;
+}
+
+.btn-volver-candidato {
+    padding: 6px 12px;
+    background-color: var(--card-bg);
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: inherit !important;
+    font-size: 14px;
+    color: #111827;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    height: 33px;
+    display: flex !important;
+    align-items: center;
+    margin-right: 0 !important;
+    gap: 5px;
+}
+
+.btn-volver-candidato:hover {
+    background-color: #4c4d50 !important;
+    color: #dedede !important;
+
+}
+
+.dark .btn-volver-candidato {
+    color: #f9fafb;
+    border-color: #4b5563;
+    background-color: var(--card-bg);
+}
+
+.dark .btn-volver-candidato:hover {
+    background-color: var(--text-color) !important;
+    color: #111827 !important;
+
+}
+
+/* Tabla */
 .tabla-candidatos-container {
     overflow-x: auto;
     border-radius: 12px;
@@ -14,78 +88,32 @@
     border: 1px solid #374151;
 }
 
-.header-candidatos {
-    font-size: 2rem;
-    font-weight: 600;
-    color: #1a1a1a;
-    margin: 20px 0px;
-    border-bottom: 2px solid #e5e7eb;
-    padding-bottom: 8px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-}
-.btn-volver {
-    margin-right: 0px;
-}
-.dark .header-candidatos {
-    color: #f9fafb;
-    border-bottom: 2px solid #4b5563;
-}
-
-.tabla-candidatos{
+.tabla-candidatos {
     width: 100%;
-}
-.tabla-candidatos tbody{
-    border-bottom: none;
-}
-/* Encabezado */
-.tabla-candidatos th {
-    
-    background-color: #f9fafb;
-    color: #374151;
-    font-weight: 600;
-    padding: 12px 16px;
-    text-align: left;
-    border-bottom: 1px solid #d1d5db;
-    border-right: 1px solid #d1d5db;
+    border-collapse: collapse;
 }
 
-.tabla-candidatos th:last-child {
-    border-right: none;
-}
-
-.tabla-candidatos thead tr:first-child th:first-child {
-    border-top-left-radius: 12px;
-}
-
-.tabla-candidatos thead tr:first-child th:last-child {
-    border-top-right-radius: 12px;
-}
-
-.dark .tabla-candidatos th {
-    background-color: #2d3748;
-    color: #f9fafb;
-    border-bottom: 1px solid #374151;
-    border-right: 1px solid #374151;
-}
-
-.dark .tabla-candidatos th:last-child {
-    border-right: none;
-}
-.tabla-candidatos tr:last-child td {
-    border-bottom: none;
-}
-/* Celdas */
+.tabla-candidatos th,
 .tabla-candidatos td {
     padding: 12px 16px;
     border-bottom: 1px solid #e5e7eb;
     border-right: 1px solid #e5e7eb;
+    text-align: left;
+    font-size: 0.95rem;
+}
+
+.tabla-candidatos th {
+    background-color: #f9fafb;
+    color: #374151;
+    font-weight: 600;
+}
+
+.tabla-candidatos td {
     color: #374151;
     background-color: #ffffff;
 }
 
+.tabla-candidatos th:last-child,
 .tabla-candidatos td:last-child {
     border-right: none;
 }
@@ -98,30 +126,32 @@
     border-bottom-right-radius: 12px;
 }
 
-/* Filas intercaladas */
 .tabla-candidatos tbody tr:nth-child(even) td {
     background-color: #f3f4f6;
 }
 
+.tabla-candidatos tr:hover td {
+    background-color: #e5e7eb;
+    cursor: pointer;
+}
+
+/* Dark mode */
+.dark .tabla-candidatos th {
+    background-color: #2d3748;
+    color: #f9fafb;
+    border-bottom: 1px solid #374151;
+    border-right: 1px solid #374151;
+}
+
 .dark .tabla-candidatos td {
+    background-color: #1f2937;
     color: #e4e4e4;
     border-bottom: 1px solid #374151;
     border-right: 1px solid #374151;
-    background-color: #1f2937;
-}
-
-.dark .tabla-candidatos td:last-child {
-    border-right: none;
 }
 
 .dark .tabla-candidatos tbody tr:nth-child(even) td {
     background-color: #2d3748;
-}
-
-/* Fila hover */
-.tabla-candidatos tr:hover td {
-    background-color: #e5e7eb;
-    cursor: pointer;
 }
 
 .dark .tabla-candidatos tr:hover td {
@@ -129,30 +159,26 @@
 }
 
 /* Nombre clickeable */
-.tabla-candidatos td.nombre-alumno {
+.nombre-alumno {
     color: #2563eb;
     text-decoration: underline;
     cursor: pointer;
 }
 
-.tabla-candidatos td.nombre-alumno:hover {
+.nombre-alumno:hover {
     color: #1d4ed8;
 }
 
-.dark .tabla-candidatos td.nombre-alumno {
+.dark .nombre-alumno {
     color: #63b3ed;
 }
 
-.dark .tabla-candidatos td.nombre-alumno:hover {
+.dark .nombre-alumno:hover {
     color: #4299e1;
 }
-.boton-desplegable {
-    padding: 8px 16px;
-    background-color: var(--card-bg, #f9fafb);
-    border: 1px solid var(--border-color, #e5e7eb);
-    border-radius: 8px;
-    font-weight: 600;
-    color: var(--text, #111827);
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+
+@media (max-whidth:640px) {
+    .header-candidatos h1 {
+        font-size: 24px;
+    }
 }

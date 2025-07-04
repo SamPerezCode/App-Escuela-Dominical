@@ -94,7 +94,7 @@ function InfoEstudiante() {
                 {/* Acciones en escritorio */}
                 {!esMovil && (
                     <div className="acciones-header-info-estudiante">
-                        <button className="btn-volver" onClick={() => navigate(from)}>
+                        <button className="btn-volver-estudiante" onClick={() => navigate(from)}>
                             ← Regresar
                         </button>
                     </div>

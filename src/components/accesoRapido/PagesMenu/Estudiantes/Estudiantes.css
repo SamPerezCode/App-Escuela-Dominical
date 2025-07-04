@@ -146,7 +146,7 @@
 @media (max-width: 640px) {
 
   .btn-volver-estudiante {
-    display: none;
+    display: none !important;
   }
 
   .btn-registrar-estudiante {

@@ -68,8 +68,8 @@ function RegistrarEstudiantes() {
 
     return (
         <div className="registro-estudiantes">
-            <div className="header-estudiantes">
-                <div className="title-estudiantes">
+            <div className="header-registro">
+                <div className="title-registro">
                     <h1>Registrar estudiantes</h1>
 
                     <div className="acciones-estudiantes" ref={menuRef}>

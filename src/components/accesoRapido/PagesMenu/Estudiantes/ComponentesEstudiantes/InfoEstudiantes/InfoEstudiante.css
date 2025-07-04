@@ -15,7 +15,7 @@
     align-items: center;
     flex-wrap: nowrap;
     gap: 1rem;
-    
+
 }
 
 .registro-header h1 {
@@ -75,19 +75,6 @@
 }
 
 
-.btn-volver {
-    background-color: #aaa;
-    color: white;
-    padding: 0.5rem 1.2rem;
-    border: none;
-    border-radius: 6px;
-    font-weight: 500;
-    cursor: pointer;
-}
-
-.btn-volver:hover {
-    background-color: #888;
-}
 
 
 .btn-accion.guardar {
@@ -133,6 +120,7 @@
     gap: 1rem;
     margin-top: 2rem;
 }
+
 .acciones-header-info-estudiante {
     position: relative;
     display: flex;
@@ -181,7 +169,7 @@
     .registro-header {
         /* flex-direction: column; */
         /* align-items: flex-start; */
-        
+
     }
 
     .registro-formulario {
@@ -192,6 +180,7 @@
         /* flex-direction: column; */
         align-items: stretch;
     }
+
     .acciones-header-info-estudiante {
         justify-content: flex-end;
     }
