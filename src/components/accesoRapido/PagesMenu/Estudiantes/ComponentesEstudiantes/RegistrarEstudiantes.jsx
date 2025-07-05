@@ -101,7 +101,7 @@ function RegistrarEstudiantes() {
             </div>
 
 
-            <form className="registro-formulario" onSubmit={handleSubmit}>
+            <form className="registro-formulario-estudiante" onSubmit={handleSubmit}>
                 <div className="form-grupo">
                     <label>Nombre completo *</label>
                     <input

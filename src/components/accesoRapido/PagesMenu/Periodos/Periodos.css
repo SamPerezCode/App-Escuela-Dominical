@@ -2,14 +2,14 @@
     font-size: 2rem;
     font-weight: 600;
     color: #1a1a1a;
-    margin: 20px 0px;
+    margin: 20px 0;
     border-bottom: 2px solid #e5e7eb;
     padding-bottom: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 10px; 
+    flex-wrap: nowrap;
+    gap: 12px;
 }
 
 .dark .title-periodos {
@@ -20,13 +20,19 @@
 .acciones-periodos {
     display: flex;
     align-items: center;
-    gap: 0px;
+
     position: relative;
 }
 
+
 .btn-volver-periodo {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    gap: 6px;
     padding: 6px 12px;
-    background-color: var(--card-bg);
+    margin-right: 0px !important;
+    background-color: var(--card-bg, #fff);
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 14px;
@@ -36,24 +42,62 @@
 }
 
 .btn-volver-periodo:hover {
-    background-color: #f3f4f6;
+    background-color: #4c4d50 !important;
+    color: #dedede !important;
 }
 
 .dark .btn-volver-periodo {
-    color: #111827;
+    color: #f9fafb;
     border-color: #4b5563;
-    background-color: var(--card-bg);
 }
 
 .dark .btn-volver-periodo:hover {
-    background-color: #2d3748;
+    background-color: #374151;
+    color: #111827 !important;
 }
+
+.btn-crear-periodo {
+    padding: 6px 12px;
+    background-color: #10b981;
+    margin-left: 0px !important;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-left: 0px !important;
+    transition: background-color 0.3s ease;
+    font-family: inherit;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.btn-crear-periodo:hover {
+    background-color: #059669;
+    /* verde emerald-600 */
+    color: #111827 !important;
+}
+
+.dark .btn-crear-periodo {
+    background-color: #047857;
+    /* verde emerald-700 */
+    color: #f9fafb;
+}
+
+.dark .btn-crear-periodo:hover {
+    background-color: #59b79c;
+    /* verde clarito hover */
+    color: #111827 !important;
+}
+
+
 
 .menu-icon {
     width: 24px;
     height: 24px;
     cursor: pointer;
-    filter: invert(0);
+    flex-shrink: 0;
+    /* ✅ No se reduce ni se mueve */
 }
 
 .dark .menu-icon {
@@ -95,9 +139,17 @@
     background-color: #374151;
 }
 
-/* Responsive: Ocultar botón volver en móvil */
-@media (max-width: 639px) {
+@media (max-width: 640px) {
     .btn-volver-periodo {
         display: none;
+    }
+
+    .btn-crear-periodo {
+        display: none;
+    }
+
+    .header-periodos-form {
+        flex-wrap: nowrap;
+        /* 🟢 Forzamos a NO saltar en móvil para mantenerlo alineado */
     }
 }

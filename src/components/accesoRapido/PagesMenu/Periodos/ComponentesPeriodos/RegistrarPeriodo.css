@@ -1,5 +1,9 @@
+/* === Contenedor principal === */
 .registro-periodos {
     width: 100%;
+
+    margin: 0 auto;
+    /* Centrado */
     padding: 2rem;
     box-sizing: border-box;
     display: flex;
@@ -9,12 +13,13 @@
     color: var(--text);
 }
 
+/* === Header === */
 .header-periodos-form {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 12px;
     border-bottom: 2px solid #e5e7eb;
     padding-bottom: 8px;
 }
@@ -25,12 +30,13 @@
 }
 
 .header-periodos-form h1 {
-    font-size: 1rem;
-    font-weight: 700;
+    font-size: 2rem;
+    font-weight: 600;
     margin: 0;
-    color: var(--text);
+    color: var(--text-color, #1a1a1a);
 }
 
+/* === Formulario === */
 .formulario-periodos {
     display: flex;
     flex-direction: column;
@@ -52,33 +58,28 @@
 .grupo-formulario input {
     padding: 0.5rem;
     font-size: 1rem;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border-color, #ddd);
     border-radius: 6px;
-    background-color: var(--card-bg);
-    color: var(--text-color);
+    background-color: var(--card-bg, #fff);
+    color: var(--text-color, #111827);
 }
 
+/* === Botones === */
 .acciones-periodos {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
 }
 
-.btn-guardar,
-.btn-cancelar,
-.btn-volver {
-    padding: 0.6rem 1.2rem;
-    font-size: 1rem;
-    font-weight: 600;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
 .btn-guardar {
     background-color: #007bff;
     color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .btn-guardar:hover {
@@ -88,6 +89,12 @@
 .btn-cancelar {
     background-color: #f44336;
     color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .btn-cancelar:hover {
@@ -95,9 +102,15 @@
 }
 
 .btn-volver {
+    padding: 6px 12px;
     background-color: transparent;
-    color: var(--text-color);
-    border: 1px solid var(--border-color);
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 14px;
+    color: #111827;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .btn-volver:hover {
@@ -105,41 +118,25 @@
     color: var(--btn-hover-text);
 }
 
-/* Modo oscuro */
+.dark .btn-volver {
+    border-color: #4b5563;
+    color: #f9fafb;
+}
+
+.dark .btn-volver:hover {
+    background-color: #2d3748;
+}
+
+/* === Responsive === */
+@media (max-width: 639px) {
+    .btn-volver {
+        display: none;
+    }
+}
+
+/* === Dark mode inputs === */
 body.dark .grupo-formulario input {
     background-color: #2c2c2c;
     border-color: #555;
     color: #f1f1f1;
-}
-
-body.dark .btn-volver {
-    border-color: #666;
-}
-
-body.dark .btn-volver:hover {
-    background-color: #333;
-    color: white;
-}
-
-/* Responsive */
-@media (min-width: 640px) {
-    .header-periodos-form button {
-        margin-right: 0px;
-    }
-
-    .formulario-periodos {
-        width: 100%;
-    }
-
-    .registro-periodos {
-        min-width: 600px;
-    }
-
-    .btn-volver {
-        margin-right: 35px;
-    }
-
-    .header-periodos-form h1 {
-        font-size: 2rem;
-    }
 }

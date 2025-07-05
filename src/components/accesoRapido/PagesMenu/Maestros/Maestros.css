@@ -1,81 +1,123 @@
 .title-maestros {
-    font-size: 2rem;
-    font-weight: 600;
-    color: #1a1a1a;
-    margin: 20px 0px;
-    border-bottom: 2px solid #e5e7eb;
-    padding-bottom: 8px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 20px 0px;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: nowrap;
+  position: relative;
 }
 
 .dark .title-maestros {
-    color: #f9fafb;
-    border-bottom: 2px solid #4b5563;
+  color: #f9fafb;
+  border-bottom: 2px solid #4b5563;
 }
 
-.btn-volver {
-    /* margin: 10px; */
-    padding: 6px 12px;
-    background-color: transparent;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 14px;
-    color: #111827;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.btn-volver-maestro {
+  padding: 6px 12px;
+  background-color: var(--card-bg);
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 14px;
+  color: #111827;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  height: 33px;
+  display: flex;
+  align-items: center;
+  margin-right: 0 !important;
 }
 
-.btn-volver:hover {
-    background-color: #f3f4f6;
+.btn-volver-maestro:hover {
+  background-color: #4c4d50 !important;
+  color: #dedede !important;
 }
 
-.dark .btn-volver {
-    color: #f9fafb;
-    border-color: #4b5563;
+.dark .btn-volver-maestro {
+  color: #f9fafb;
+  border-color: #4b5563;
+  background-color: var(--card-bg);
 }
 
-.dark .btn-volver:hover {
-    background-color: #2d3748;
+.dark .btn-volver-maestro:hover {
+  background-color: var(--text-color) !important;
+  color: #111827 !important;
+}
+
+.btn-registrar-maestro {
+  padding: 6px 12px;
+  background-color: #10b981;
+  /* verde */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-registrar-maestro:hover {
+  background-color: #059669;
+  color: #111827 !important;
+}
+
+.dark .btn-registrar-maestro {
+  background-color: #047857;
+  color: #f9fafb;
+}
+
+.dark .btn-registrar-maestro:hover {
+  background-color: #59b79c;
+  color: #111827 !important;
+}
+
+.acciones-header-maestros {
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 
 .container-accesos-maestros {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    padding: 2rem 0;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 2rem 0;
+  justify-content: center;
 }
 
 .acceso-btn {
-    background-color: var(--card-bg);
-    color: var(--text-color);
-    border: 1px solid var(--border-color);
-    padding: 1rem 1.5rem;
-    border-radius: 12px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
-    min-width: 220px;
-    text-align: center;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  min-width: 220px;
+  text-align: center;
 }
 
 .acceso-btn:hover {
-    background-color: var(--btn-hover-bg);
-    color: var(--btn-hover-text);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-    transform: translateY(-2px);
+  background-color: var(--btn-hover-bg);
+  color: var(--btn-hover-text);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
 }
 
 .icono-menu {
-  width: 28px;
-  height: 28px;
+  width: 24px;
   cursor: pointer;
-  margin-left: 10px;
+  filter: brightness(0);
 }
 
 .dark .icono-menu {
@@ -88,35 +130,45 @@
   position: relative;
 }
 
-/* Dropdown */
 .dropdown-opciones {
   position: absolute;
+  top: 110%;
   right: 0;
-  top: 36px;
-  background: var(--card-bg);
-  color: var(--text-color);
-  border: 1px solid var(--border-color);
+  background-color: white;
+  border: 1px solid #ddd;
   border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   list-style: none;
-  padding: 6px 0;
-  min-width: 170px;
-  z-index: 10;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  padding: 8px 0;
+  z-index: 100;
+  width: 220px;
+  font-size: 16px;
 }
 
 .dropdown-opciones li {
   padding: 10px 16px;
   cursor: pointer;
+  transition: background-color 0.2s;
 }
 
 .dropdown-opciones li:hover {
-  background-color: var(--btn-hover-bg);
-  color: var(--btn-hover-text);
+  background-color: #f3f4f6 !important;
 }
 
+.dark .dropdown-opciones {
+  background-color: #1f2937;
+  color: #f3f4f6;
+  border-color: #4b5563;
+}
 
-@media (min-width: 640px) {
-    .title-maestros button {
-        margin-right: 0px;
-    }
+.dark .dropdown-opciones li:hover {
+  background-color: #374151 !important;
+}
+
+@media (max-width: 640px) {
+
+  .btn-volver-maestro,
+  .btn-registrar-maestro {
+    display: none !important;
+  }
 }

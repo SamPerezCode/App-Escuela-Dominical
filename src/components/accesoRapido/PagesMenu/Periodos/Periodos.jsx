@@ -38,11 +38,19 @@ function Periodos() {
             <div className="header-periodos">
                 <div className="title-periodos">
                     <h1>Periodos</h1>
-
                     <div className="acciones-periodos" ref={menuRef}>
-                        {/* Botón ← Regresar solo visible en pantallas grandes */}
-                        <button className="btn-volver-periodo" onClick={() => navigate("/dashboard")}>
-                            ←  Regresar
+                        <button
+                            className="btn-volver-periodo"
+                            onClick={() => navigate("/dashboard")}
+                        >
+                            ← Regresar
+                        </button>
+
+                        <button
+                            className="btn-crear-periodo"
+                            onClick={() => navigate("/dashboard/registrar-periodo")}
+                        >
+                            + Crear periodo
                         </button>
 
                         <img
@@ -51,17 +59,22 @@ function Periodos() {
                             className="menu-icon"
                             onClick={() => setMenuAbierto(!menuAbierto)}
                         />
+
                         {menuAbierto && (
                             <ul className="dropdown-opciones">
                                 {esMovil && (
                                     <li onClick={() => navigate("/dashboard")}>Volver al panel</li>
                                 )}
-                                <li onClick={() => navigate("/dashboard/registrar-periodo")}>Crear periodo</li>
+                                <li onClick={() => navigate("/dashboard/registrar-periodo")}>
+                                    Crear periodo
+                                </li>
                             </ul>
                         )}
                     </div>
+
                 </div>
             </div>
+
 
             <div className="container-info-periodos">
                 <TablaPeriodos periodos={periodos} />

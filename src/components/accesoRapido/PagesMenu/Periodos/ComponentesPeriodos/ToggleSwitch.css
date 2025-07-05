@@ -1,11 +1,12 @@
-/* ToggleSwitch.css */
 .toggle-switch {
     position: relative;
     display: inline-block;
-    width: 50px;
-    /* ancho del slider */
-    height: 26px;
-    /* alto del slider */
+    width: 2.5em;
+    /* Escalable */
+    height: 1.4em;
+    /* Escalable */
+    flex-shrink: 0;
+    /* No se encoge dentro de flex */
 }
 
 .toggle-switch input {
@@ -22,27 +23,28 @@
     right: 0;
     bottom: 0;
     background-color: #ef4444;
-    /* Rojo si inactivo por defecto */
     transition: 0.4s;
-    border-radius: 34px;
+    border-radius: 1em;
 }
 
 .toggle-slider:before {
     position: absolute;
     content: "";
-    height: 20px;
-    width: 20px;
-    left: 3px;
-    bottom: 3px;
+    height: 1em;
+    /* Escalable */
+    width: 1em;
+    /* Escalable */
+    left: 0.2em;
+    /* Padding interno */
+    bottom: 0.2em;
     background-color: white;
     transition: 0.4s;
     border-radius: 50%;
 }
 
-/* ✅ Si está activo: verde */
+/* ✅ Activo: verde emerald */
 .toggle-switch input:checked+.toggle-slider {
     background-color: #10b981;
-    /* verde emerald */
 }
 
 .toggle-switch input:focus+.toggle-slider {
@@ -50,11 +52,11 @@
 }
 
 .toggle-switch input:checked+.toggle-slider:before {
-    transform: translateX(24px);
+    transform: translateX(1.1em);
     /* Desplaza la bolita */
 }
 
-/* Modo dark (ajusta solo colores base si quieres) */
+/* 🌓 Modo dark: colores base */
 .dark .toggle-slider {
     background-color: #ef4444;
 }

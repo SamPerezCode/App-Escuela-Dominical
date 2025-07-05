@@ -2,8 +2,10 @@ import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { eliminarAlumno } from "../../../../api/alumnos/eliminarAlumno";
 import { useAlumnos } from "../../../../context/AlumnosContext";
-import ToggleSwitch from "./ToggleSwitchEstudiante";
+// import ToggleSwitch from "./ToggleSwitchEstudiante";
+
 import "./tablaEstudiantes.css";
+import ToggleSwitch from "../Periodos/ComponentesPeriodos/ToggleSwitch";
 
 function TablaEstudiantes({ estudiantes }) {
     const navigate = useNavigate();
@@ -12,15 +14,18 @@ function TablaEstudiantes({ estudiantes }) {
     const [esMovil, setEsMovil] = useState(window.innerWidth < 640);
     const [busqueda, setBusqueda] = useState("");
     const [paginaActual, setPaginaActual] = useState(1);
-    const estudiantesPorPagina = 10;
+    const estudiantesPorPagina = 5;
 
     useEffect(() => {
         const estadoInicial = {};
         estudiantes.forEach((est) => {
-            estadoInicial[est.id] = est.estado === "activo";
+            estadoInicial[est.id] = est.activo; // 👈 usa el campo correcto
         });
         setEstadoEstudiantes(estadoInicial);
+
     }, [estudiantes]);
+
+
 
     useEffect(() => {
         const handleResize = () => setEsMovil(window.innerWidth < 640);
@@ -70,9 +75,9 @@ function TablaEstudiantes({ estudiantes }) {
                     <tr>
                         <th>Nombre</th>
                         <th>Fecha de nacimiento</th>
-                        <th>Teléfono</th>
+                        {/* <th>Teléfono</th>
                         <th>Acudiente</th>
-                        <th>Tel. Acudiente</th>
+                        <th>Tel. Acudiente</th> */}
                         <th>Dirección</th>
                         {!esMovil && <th>Acciones</th>}
                     </tr>
@@ -81,18 +86,21 @@ function TablaEstudiantes({ estudiantes }) {
                     {estudiantesPagina.length > 0 ? (
                         estudiantesPagina.map((est) => (
                             <tr key={est.id}>
-                                <td
-                                    className="nombre-alumno"
-                                    onClick={() => navigate(`/dashboard/estudiantes/${est.id}`)}
-                                    style={{ cursor: "pointer", color: "var(--link-color)" }}
-                                >
-                                    {est.nombre}
+                                <td>
+                                    <button
+                                        className="nombre-alumno"
+                                        onClick={() => navigate(`/dashboard/estudiantes/${est.id}`)}
+                                    >
+                                        {est.nombre}
+                                    </button>
                                 </td>
+
+
                                 <td>{est.fecha_nacimiento?.slice(0, 10)}</td>
-                                <td>{est.telefono}</td>
+                                {/* <td>{est.telefono}</td>
                                 <td>{est.acudiente}</td>
-                                <td>{est.acudiente_telefono}</td>
-                                <td>{est.direccion}</td>
+                                <td>{est.acudiente_telefono}</td> */}
+                                <td td > {est.direccion}</td>
                                 {!esMovil && (
                                     <td>
                                         <div className="acciones-estudiante">
@@ -109,13 +117,13 @@ function TablaEstudiantes({ estudiantes }) {
                                                 onClick={() => handleEliminar(est.id)}
                                             />
                                             <ToggleSwitch
-                                                checked={estadoEstudiantes[est.id] || false}
-                                                onChange={() =>
+                                                isActive={estadoEstudiantes[est.id]}
+                                                onToggle={() => {
                                                     setEstadoEstudiantes((prev) => ({
                                                         ...prev,
                                                         [est.id]: !prev[est.id],
-                                                    }))
-                                                }
+                                                    }));
+                                                }}
                                             />
                                         </div>
                                     </td>
@@ -130,7 +138,7 @@ function TablaEstudiantes({ estudiantes }) {
                         </tr>
                     )}
                 </tbody>
-            </table>
+            </table >
 
             <div className="paginacion-estudiantes">
                 <button
@@ -149,7 +157,7 @@ function TablaEstudiantes({ estudiantes }) {
                     Siguiente →
                 </button>
             </div>
-        </div>
+        </div >
     );
 }
 

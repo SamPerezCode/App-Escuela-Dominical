@@ -1,5 +1,9 @@
 .registro-estudiantes {
     width: 100%;
+    max-width: 900px;
+    /* ✅ limita ancho máximo */
+    margin: 0 auto;
+    /* ✅ centra horizontalmente */
     padding: 2rem;
     box-sizing: border-box;
     display: flex;
@@ -8,6 +12,7 @@
     background-color: var(--bg);
     color: var(--text);
 }
+
 
 .title-registro {
     font-size: 2rem;
@@ -29,29 +34,9 @@
     border-bottom: 2px solid #4b5563;
 }
 
-/* .registro-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-    border-bottom: 2px solid #e5e7eb;
-    padding-bottom: 8px;
-}
 
-.dark .registro-header {
-    color: #f9fafb;
-    border-bottom: 2px solid #4b5563;
-}
 
-.registro-header h1 {
-    font-size: 1rem;
-    font-weight: 700;
-    margin: 0;
-    color: var(--text);
-} */
-
-.registro-formulario {
+.registro-formulario-estudiante {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -162,7 +147,7 @@ body.dark .btn-volver-estudiante:hover {
         margin-right: 0px;
     }
 
-    .registro-formulario {
+    .registro-formulario-estudiante {
         width: 100%;
     }
 

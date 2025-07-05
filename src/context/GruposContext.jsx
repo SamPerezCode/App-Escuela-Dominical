@@ -8,9 +8,11 @@ export const GruposProvider = ({ children }) => {
 
     const cargarGrupos = async () => {
         const token = localStorage.getItem("token");
-        const data = await obtenerGrupos(token);
-        setGrupos(data?.data || []);
+        const response = await obtenerGrupos(token);
+        // console.log("📦 Datos crudos de grupos:", response);
+        setGrupos(response?.data || []);
     };
+
 
     return (
         <GruposContext.Provider value={{ grupos, cargarGrupos }}>

@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import obtenerCursos from "../../../../../api/cursos/obtenerCursos";
-import obtenerCelebraciones from "../../../../../api/celebraciones/obtenerCelebraciones";
 import registrarMaestro from "../../../../../api/maestros/crearMaestro";
+import "./RegistrarMaestro.css";
+import { usePeriodos } from "../../../../../context/PeriodosContext";
 
 function RegistrarMaestro() {
+    const { recargarPeriodos } = usePeriodos();
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from || "/dashboard/maestros";
@@ -13,27 +14,15 @@ function RegistrarMaestro() {
         nombre: "",
         telefono: "",
         fecha_nacimiento: "",
-        estado: "activo", // Fijo por ahora
-        curso_id: "",
-        celebracion_id: ""
+        estado: "activo",
     });
 
-    const [cursos, setCursos] = useState([]);
-    const [celebraciones, setCelebraciones] = useState([]);
     const [esMovil, setEsMovil] = useState(window.innerWidth < 640);
     const [menuAbierto, setMenuAbierto] = useState(false);
     const menuRef = useRef(null);
 
     useEffect(() => {
-        const cargarDatos = async () => {
-            const token = localStorage.getItem("token");
-            const cursosData = await obtenerCursos(token);
-            const celebracionesData = await obtenerCelebraciones(token);
-            setCursos(cursosData.data || []);
-            setCelebraciones(celebracionesData.data || []);
-        };
-
-        cargarDatos();
+        recargarPeriodos();
     }, []);
 
     useEffect(() => {
@@ -57,80 +46,111 @@ function RegistrarMaestro() {
         const { name, value } = e.target;
         setFormData((prev) => ({
             ...prev,
-            [name]: value
+            [name]: value,
         }));
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Solo enviamos lo que el backend necesita
         const maestroARegistrar = {
             nombre: formData.nombre,
             telefono: formData.telefono,
             fecha_nacimiento: formData.fecha_nacimiento,
-            estado: "activo"
+            estado: "activo",
         };
 
         const exito = await registrarMaestro(maestroARegistrar);
 
         if (exito) {
-            alert("Maestro registrado correctamente");
-            navigate(from);
+            // ⚡ Refresca periodos y guarda la respuesta
+            const activo = await recargarPeriodos();
+
+            const confirmar = window.confirm(
+                "✅ Maestro registrado correctamente.\n\n⚡ Para asociar este maestro a un curso y celebración, utiliza la vista Periodos.\n\n¿Quieres ir ahora?"
+            );
+
+            console.log("🚦 Periodo activo disponible:", activo);
+
+            if (confirmar) {
+                if (activo && activo.id) {
+                    navigate(`/dashboard/periodos/${activo.id}`);
+                } else {
+                    alert("❌ No hay periodo activo detectado. Redirígete manualmente.");
+                    navigate("/dashboard/periodos");
+                }
+            } else {
+                navigate(from);
+            }
         } else {
-            alert("Error al registrar maestro");
+            alert("❌ Error al registrar maestro");
         }
     };
 
+
+
+
     return (
-        <div className="registro-estudiantes">
-            <div className="registro-header">
-                <h1>Registrar nuevo maestro</h1>
+        <div className="registro-maestro">
+            <div className="header-registro">
+                <div className="title-registro">
+                    <h1>Registrar maestro</h1>
 
-                {!esMovil && (
-                    <button className="btn-volver" onClick={() => navigate(from)}>
-                        ← Regresar
-                    </button>
-                )}
+                    <div className="acciones-maestros" ref={menuRef}>
+                        {/* Botón volver escritorio */}
+                        {!esMovil && (
+                            <button
+                                className="btn-volver-maestro"
+                                onClick={() => navigate(from)}
+                            >
+                                ← Regresar
+                            </button>
+                        )}
 
-                {esMovil && (
-                    <div className="acciones-header-info-estudiante" ref={menuRef}>
+                        {/* Menú móvil */}
                         <img
                             src="/image/menu-vertical.svg"
-                            alt="acciones"
-                            className="icono-menu"
+                            alt="Opciones"
+                            className="menu-icon"
                             onClick={() => setMenuAbierto(!menuAbierto)}
                         />
+
                         {menuAbierto && (
                             <ul className="dropdown-opciones">
-                                <li onClick={() => navigate(from)}>← Regresar</li>
+                                {esMovil && (
+                                    <li onClick={() => navigate(from)}>← Regresar</li>
+                                )}
                             </ul>
                         )}
                     </div>
-                )}
+                </div>
             </div>
 
-            <form className="registro-formulario" onSubmit={handleSubmit}>
+            <form className="registro-formulario-maestro" onSubmit={handleSubmit}>
                 <div className="campo-formulario">
                     <label>Nombre completo</label>
                     <input
                         type="text"
                         name="nombre"
+                        placeholder="Nombre completo"
                         value={formData.nombre}
                         onChange={handleChange}
                         required
                     />
                 </div>
+
                 <div className="campo-formulario">
                     <label>Teléfono</label>
                     <input
                         type="text"
                         name="telefono"
+                        placeholder="Teléfono del maestro"
                         value={formData.telefono}
                         onChange={handleChange}
                         required
                     />
                 </div>
+
                 <div className="campo-formulario">
                     <label>Fecha de nacimiento</label>
                     <input
@@ -142,29 +162,17 @@ function RegistrarMaestro() {
                     />
                 </div>
 
-                {/* Estos campos son visuales por ahora, no se envían al backend */}
-                <div className="campo-formulario">
-                    <label>Horario de celebración (sin efecto por ahora)</label>
-                    <select name="celebracion_id" value={formData.celebracion_id} onChange={handleChange}>
-                        <option value="">-- Selecciona una celebración --</option>
-                        {celebraciones.map((c) => (
-                            <option key={c.id} value={c.id}>{c.nombre}</option>
-                        ))}
-                    </select>
-                </div>
-                <div className="campo-formulario">
-                    <label>Curso asignado (sin efecto por ahora)</label>
-                    <select name="curso_id" value={formData.curso_id} onChange={handleChange}>
-                        <option value="">-- Selecciona un curso --</option>
-                        {cursos.map((c) => (
-                            <option key={c.id} value={c.id}>{c.nombre}</option>
-                        ))}
-                    </select>
-                </div>
-
                 <div className="acciones-bottom">
-                    <button type="submit" className="btn-accion guardar">Registrar maestro</button>
-                    <button type="button" className="btn-cancelar" onClick={() => navigate(from)}>Cancelar</button>
+                    <button type="submit" className="btn-accion guardar">
+                        Registrar maestro
+                    </button>
+                    <button
+                        type="button"
+                        className="btn-cancelar"
+                        onClick={() => navigate(from)}
+                    >
+                        Cancelar
+                    </button>
                 </div>
             </form>
         </div>

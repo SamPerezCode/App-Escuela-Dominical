@@ -11,7 +11,7 @@ function RegistrarPeriodo() {
     const [formData, setFormData] = useState({
         nombre: "",
         fecha_inicio: "",
-        fecha_fin: ""
+        fecha_fin: "",
     });
 
     const [esMovil, setEsMovil] = useState(window.innerWidth < 640);
@@ -39,7 +39,7 @@ function RegistrarPeriodo() {
         const { name, value } = e.target;
         setFormData((prev) => ({
             ...prev,
-            [name]: value
+            [name]: value,
         }));
     };
 
@@ -56,17 +56,15 @@ function RegistrarPeriodo() {
 
     return (
         <div className="registro-periodos">
-            <div className="registro-header">
-                <h1>Registrar nuevo periodo</h1>
+            <div className="header-periodos-form">
+                <h1>Crear periodo</h1>
 
-                {/* Escritorio */}
                 {!esMovil && (
-                    <button className="btn-volver" onClick={() => navigate(from)}>
+                    <button className="btn-volver-periodo" onClick={() => navigate(from)}>
                         ← Regresar
                     </button>
                 )}
 
-                {/* Móvil */}
                 {esMovil && (
                     <div className="acciones-header-info-estudiante" ref={menuRef}>
                         <img
@@ -84,8 +82,8 @@ function RegistrarPeriodo() {
                 )}
             </div>
 
-            <form className="registro-formulario" onSubmit={handleSubmit}>
-                <div className="form-grupo">
+            <form className="formulario-periodos" onSubmit={handleSubmit}>
+                <div className="grupo-formulario">
                     <label>Nombre del periodo *</label>
                     <input
                         type="text"
@@ -97,7 +95,7 @@ function RegistrarPeriodo() {
                     />
                 </div>
 
-                <div className="form-grupo">
+                <div className="grupo-formulario">
                     <label>Fecha de inicio *</label>
                     <input
                         type="date"
@@ -108,7 +106,7 @@ function RegistrarPeriodo() {
                     />
                 </div>
 
-                <div className="form-grupo">
+                <div className="grupo-formulario">
                     <label>Fecha de fin *</label>
                     <input
                         type="date"
@@ -119,9 +117,15 @@ function RegistrarPeriodo() {
                     />
                 </div>
 
-                <div className="botones-formulario">
-                    <button type="submit" className="btn-guardar">Guardar</button>
-                    <button type="button" className="btn-cancelar" onClick={() => navigate(from)}>
+                <div className="acciones-periodos">
+                    <button type="submit" className="btn-guardar">
+                        Guardar
+                    </button>
+                    <button
+                        type="button"
+                        className="btn-cancelar"
+                        onClick={() => navigate(from)}
+                    >
                         Cancelar
                     </button>
                 </div>

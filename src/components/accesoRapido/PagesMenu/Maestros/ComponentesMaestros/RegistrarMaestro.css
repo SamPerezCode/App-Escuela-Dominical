@@ -1,0 +1,213 @@
+/* === Contenedor principal === */
+.registro-maestro {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+/* === Header === */
+.title-registro {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 20px 0;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: nowrap;
+    position: relative;
+}
+
+.dark .title-registro {
+    color: #f9fafb;
+    border-bottom: 2px solid #4b5563;
+}
+
+.acciones-maestros {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.menu-icon {
+    width: 24px;
+    cursor: pointer;
+    filter: brightness(0);
+}
+
+.dark .menu-icon {
+    filter: brightness(0) invert(1);
+}
+
+.dropdown-opciones {
+    position: absolute;
+    top: 110%;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 8px 0;
+    z-index: 100;
+    width: 180px;
+    font-size: 16px;
+}
+
+.dropdown-opciones li {
+    padding: 10px 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.dropdown-opciones li:hover {
+    background-color: #f3f4f6 !important;
+}
+
+.dark .dropdown-opciones {
+    background-color: #1f2937;
+    color: #f3f4f6;
+    border-color: #4b5563;
+}
+
+.dark .dropdown-opciones li:hover {
+    background-color: #374151 !important;
+}
+
+/* === Botón volver === */
+.btn-volver-maestro {
+    padding: 6px 12px;
+    background-color: var(--card-bg);
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 14px;
+    color: #111827;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    height: 33px;
+    display: flex;
+    align-items: center;
+    margin-right: 0 !important;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+}
+
+.btn-volver-maestro:hover {
+    background-color: #4c4d50 !important;
+    color: #dedede !important;
+}
+
+.dark .btn-volver-maestro {
+    color: #f9fafb;
+    border-color: #4b5563;
+    background-color: var(--card-bg);
+}
+
+.dark .btn-volver-maestro:hover {
+    background-color: var(--text-color) !important;
+    color: #111827 !important;
+}
+
+@media (max-width: 640px) {
+    .btn-volver-maestro {
+        display: none !important;
+    }
+}
+
+/* === Formulario === */
+.registro-formulario-maestro {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 800px;
+}
+
+.campo-formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.campo-formulario label {
+    font-weight: bold;
+}
+
+.campo-formulario input,
+.campo-formulario select {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid var(--border-color, #ddd);
+    border-radius: 6px;
+    background-color: var(--card-bg, #fff);
+    color: var(--text-color, #111827);
+}
+
+/* === Botones inferiores === */
+.acciones-bottom {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn-accion.guardar {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-accion.guardar:hover {
+    background-color: #0056b3;
+}
+
+.btn-cancelar {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-cancelar:hover {
+    background-color: #c62828;
+}
+
+/* === Dark mode inputs === */
+body.dark .campo-formulario input,
+body.dark .campo-formulario select {
+    background-color: #2c2c2c;
+    border-color: #555;
+    color: #f1f1f1;
+}
+
+body.dark .btn-accion.guardar,
+body.dark .btn-cancelar {
+    color: #f9fafb;
+}
+
+body.dark .btn-accion.guardar:hover {
+    background-color: #0056b3;
+}
+
+body.dark .btn-cancelar:hover {
+    background-color: #c62828;
+}
