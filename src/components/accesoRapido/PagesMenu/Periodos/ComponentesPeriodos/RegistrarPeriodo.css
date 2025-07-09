@@ -102,19 +102,20 @@
 }
 
 .btn-volver-periodo {
-    padding: 6px 12px;
-    background-color: var(--card-bg);
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-family: inherit !important;
-    font-size: 14px;
-    color: #111827;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    height: 33px;
     display: flex;
     align-items: center;
-    margin-right: 0 !important;
+    white-space: nowrap;
+    gap: 6px;
+    padding: 6px 12px;
+    margin-right: 0px !important;
+    background-color: var(--card-bg, #fff);
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: inherit;
+    color: #111827;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .btn-volver-periodo:hover {
@@ -134,8 +135,8 @@
 }
 
 /* === Responsive === */
-@media (max-width: 639px) {
-    .btn-volver {
+@media (max-width: 640px) {
+    .btn-volver-periodo {
         display: none;
     }
 }

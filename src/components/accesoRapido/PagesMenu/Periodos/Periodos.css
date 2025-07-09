@@ -37,6 +37,7 @@
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 14px;
+    font-family: inherit;
     color: #111827;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -53,7 +54,7 @@
 }
 
 .dark .btn-volver-periodo:hover {
-    background-color: #374151;
+    background-color: var(--text-color) !important;
     color: #111827 !important;
 }
 

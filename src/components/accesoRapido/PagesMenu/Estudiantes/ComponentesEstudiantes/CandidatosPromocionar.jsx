@@ -8,7 +8,6 @@ import "./CandidatosPromocionar.css";
 function CandidatosPromocionar() {
     const navigate = useNavigate();
 
-    // NUEVO: versión responsive para menú móvil
     const [esMovil, setEsMovil] = useState(window.innerWidth < 640);
     const [menuAbierto, setMenuAbierto] = useState(false);
     const menuRef = useRef(null);
@@ -30,12 +29,16 @@ function CandidatosPromocionar() {
         };
     }, []);
 
+    const estudiantesOrdenados = [...estudiantes].sort((a, b) => {
+        return a.nombre.localeCompare(b.nombre);
+    });
+
+
     return (
         <div className="container-candidatos-promocionar">
             <div className="header-candidatos">
                 <h1>Candidatos a promocionar</h1>
 
-                {/* Desktop: botón volver */}
                 {!esMovil && (
                     <button className="btn-volver-candidato" onClick={() => navigate("/dashboard/estudiantes")}>
                         ← <span>Regresar</span>
@@ -60,7 +63,6 @@ function CandidatosPromocionar() {
                 )}
             </div>
 
-            {/* 🔥 TU TABLA NO SE TOCA 🔥 */}
             <div className="tabla-candidatos-container">
                 <table className="tabla-candidatos">
                     <thead>
@@ -73,13 +75,15 @@ function CandidatosPromocionar() {
                         </tr>
                     </thead>
                     <tbody>
-                        {estudiantes.map((est) => (
+                        {estudiantesOrdenados.map((est) => (
                             <tr key={est.id}>
-                                <td
-                                    className="nombre-alumno"
-                                    onClick={() => navigate(`/dashboard/estudiantes/${est.id}`)}
-                                >
-                                    {est.nombre}
+                                <td>
+                                    <span
+                                        className="nombre-alumno-candidato"
+                                        onClick={() => navigate(`/dashboard/estudiantes/${est.id}`)}
+                                    >
+                                        {est.nombre}
+                                    </span>
                                 </td>
                                 <td>{`Curso ${Math.floor(Math.random() * 5) + 1}`}</td>
                                 <td>{`Curso ${Math.floor(Math.random() * 5) + 2}`}</td>
@@ -88,6 +92,7 @@ function CandidatosPromocionar() {
                             </tr>
                         ))}
                     </tbody>
+
                 </table>
             </div>
         </div>
