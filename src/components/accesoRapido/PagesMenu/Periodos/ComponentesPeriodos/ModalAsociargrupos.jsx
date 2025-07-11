@@ -8,7 +8,7 @@ function ModalAsociarGrupo({
     curso,
     celebracionesDisponibles,
     maestrosDisponibles,
-    grupos, // ✅ todos los grupos del periodo
+    grupos,
     onGuardarGrupo,
 }) {
     const [celebracionId, setCelebracionId] = useState("");

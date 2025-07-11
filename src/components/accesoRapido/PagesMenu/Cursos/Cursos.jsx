@@ -80,9 +80,10 @@ function Cursos() {
                     </div>
                 </div>
 
-                <div className="container-info-cursos">
-                    <TablaCursos cursos={cursos} />
-                </div>
+
+            </div>
+            <div className="container-info-cursos">
+                <TablaCursos cursos={cursos} />
             </div>
 
         </div>

@@ -38,7 +38,7 @@ function Estudiantes() {
         <div className="title-estudiantes">
           <h1>Estudiantes</h1>
           <div className="acciones-header" ref={menuRef}>
-            {/* Botones visibles en escritorio */}
+
             <button className="btn-volver-estudiante" onClick={() => navigate("/dashboard")}>
               ← Regresar
             </button>
