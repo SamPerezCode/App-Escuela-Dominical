@@ -1,5 +1,5 @@
-import { useState } from "react";
-import crearGrupo from "../../../../../api/grupos/crearGrupo";
+import { useEffect, useState } from "react";
+import guardarGrupo from "../../../../../api/grupos/guardarGrupo";
 import "./ModalAsociarGrupos.css";
 
 function ModalAsociarGrupo({
@@ -10,25 +10,40 @@ function ModalAsociarGrupo({
     maestrosDisponibles,
     grupos,
     onGuardarGrupo,
+    grupoExistente,
 }) {
     const [celebracionId, setCelebracionId] = useState("");
     const [maestrosSeleccionados, setMaestrosSeleccionados] = useState([]);
 
+    useEffect(() => {
+        if (isOpen) {
+            if (grupoExistente) {
+                setCelebracionId(grupoExistente.celebracion.id.toString());
+                setMaestrosSeleccionados(grupoExistente.maestros.map((m) => m.id));
+            } else {
+                setCelebracionId("");
+                setMaestrosSeleccionados([]);
+            }
+        }
+    }, [isOpen, grupoExistente]);
+
     if (!isOpen) return null;
 
-    // ✅ Filtro solo si hay celebración seleccionada
     const maestrosFiltrados =
         celebracionId !== ""
             ? maestrosDisponibles.filter((maestro) => {
-                return !grupos.some(
-                    (grupo) =>
+                const estaEnOtroGrupo = grupos.some((grupo) => {
+                    const mismoGrupo = grupoExistente && grupo.id === grupoExistente.id;
+                    return (
                         grupo.celebracion.id === parseInt(celebracionId) &&
-                        grupo.maestros.some((m) => m.id === maestro.id)
-                );
+                        grupo.maestros.some((m) => m.id === maestro.id) &&
+                        !mismoGrupo
+                    );
+                });
+
+                return !estaEnOtroGrupo || maestrosSeleccionados.includes(maestro.id);
             })
             : [];
-
-    console.log("✅ Maestros filtrados para celebración:", celebracionId, maestrosFiltrados);
 
     const handleCheckboxChange = (id) => {
         if (maestrosSeleccionados.includes(id)) {
@@ -48,40 +63,51 @@ function ModalAsociarGrupo({
             return;
         }
 
-        const grupo = {
+        const datosGrupo = {
             celebracion_id: parseInt(celebracionId),
             curso_periodo_id: curso.curso_periodo_id,
             maestros: maestrosSeleccionados,
         };
 
         try {
-            const creado = await crearGrupo(grupo);
-            if (!creado) throw new Error("No se pudo crear el grupo.");
+            let result;
+            if (grupoExistente) {
+                result = await guardarGrupo({ id: grupoExistente.id, ...datosGrupo });
+            } else {
+                result = await guardarGrupo(datosGrupo);
+            }
 
-            alert("Grupo asignado correctamente.");
-            if (onGuardarGrupo) onGuardarGrupo(grupo);
+            if (!result) throw new Error("No se pudo guardar el grupo.");
+
+            alert(grupoExistente ? "Grupo actualizado correctamente." : "Grupo creado correctamente.");
+            if (onGuardarGrupo) onGuardarGrupo(result);
             onClose();
         } catch (err) {
             console.error(err);
-            alert(err.message || "Error al crear grupo.");
+            alert(err.message || "Error al guardar grupo.");
         }
     };
 
     return (
-        <div className="modal-asociar-grupo__backdrop">
-            <div className="modal-asociar-grupo__content">
-                <h2>Asignar celebración y maestros</h2>
+        <div className="modal-asociar-grupo__backdrop" onClick={onClose}>
+            <div
+                className="modal-asociar-grupo__content"
+                onClick={(e) => e.stopPropagation()}
+            >
+                <h2>{grupoExistente ? "Editar grupo" : "Asignar celebración y maestros"}</h2>
                 <p>
                     Curso: <strong>{curso.nombre}</strong>
                 </p>
 
-                <label htmlFor="celebracion-select">Celebración:</label>
+                <label>Celebración:</label>
                 <select
-                    id="celebracion-select"
                     value={celebracionId}
+                    disabled={!!grupoExistente}
                     onChange={(e) => {
-                        setCelebracionId(e.target.value);
-                        setMaestrosSeleccionados([]);
+                        if (!grupoExistente) {
+                            setCelebracionId(e.target.value);
+                            setMaestrosSeleccionados([]);
+                        }
                     }}
                 >
                     <option value="">-- Selecciona --</option>
@@ -117,7 +143,7 @@ function ModalAsociarGrupo({
 
                 <div className="modal-asociar-grupo__acciones">
                     <button className="btn-guardar" onClick={handleGuardar}>
-                        Guardar
+                        {grupoExistente ? "Actualizar" : "Guardar"}
                     </button>
                     <button className="btn-cerrar" onClick={onClose}>
                         Cancelar

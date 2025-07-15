@@ -7,6 +7,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 1rem;
+    /* margen para que respire */
 }
 
 .modal-asociar-grupo__content {
@@ -15,14 +17,54 @@
     padding: 2rem;
     width: 100%;
     max-width: 420px;
+    max-height: 90vh;
+    /* 🔑 Altura máxima */
+    overflow-y: auto;
+    /* 🔑 Scroll interno */
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
     color: #111827;
+    scrollbar-width: thin;
+    /* Firefox */
+    scrollbar-color: #9ca3af #f3f4f6;
+    /* Firefox */
     transition: transform 0.3s ease;
 }
 
+/* 🔥 Barra scroll personalizada Chrome/Safari */
+.modal-asociar-grupo__content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-asociar-grupo__content::-webkit-scrollbar-track {
+    background: #f3f4f6;
+}
+
+.modal-asociar-grupo__content::-webkit-scrollbar-thumb {
+    background: #9ca3af;
+    border-radius: 4px;
+}
+
+.modal-asociar-grupo__content::-webkit-scrollbar-thumb:hover {
+    background: #6b7280;
+}
+
+/* 🌙 Dark Mode */
 .dark .modal-asociar-grupo__content {
     background: #1f2937;
     color: #f9fafb;
+    scrollbar-color: #6b7280 #374151;
+}
+
+.dark .modal-asociar-grupo__content::-webkit-scrollbar-track {
+    background: #374151;
+}
+
+.dark .modal-asociar-grupo__content::-webkit-scrollbar-thumb {
+    background: #6b7280;
+}
+
+.dark .modal-asociar-grupo__content::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
 }
 
 .modal-asociar-grupo__content h2 {
@@ -60,12 +102,6 @@
 
 .modal-asociar-grupo__maestros {
     margin-bottom: 1rem;
-}
-
-.modal-asociar-grupo__maestros p {
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    font-size: 0.95rem;
 }
 
 .modal-asociar-grupo__checkbox {
@@ -125,7 +161,6 @@
     transform: scale(1.03);
 }
 
-/* Responsivo extra */
 @media (max-width: 480px) {
     .modal-asociar-grupo__content {
         padding: 1.5rem;

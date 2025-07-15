@@ -145,7 +145,7 @@
   background: var(--card-bg, #ffffff);
   border: 1px solid #d1d5db;
   border-radius: 8px;
-  list-style: none;
+  list-style: none !important;
   padding: 6px 0;
   min-width: 160px;
   z-index: 100;

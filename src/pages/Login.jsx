@@ -18,7 +18,7 @@ function Login() {
             login(data.user, data.user.token);
             navigate("/dashboard");
         } catch (error) {
-            setError("Credenciales incorrectas. Intenta nuevamente.");
+            setError(`redenciales incorrectas. Intenta nuevamente. ${error}`);
         }
     };
 

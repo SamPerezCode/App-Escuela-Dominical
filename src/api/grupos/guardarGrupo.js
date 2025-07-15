@@ -1,8 +1,8 @@
-// src/api/grupos/crearGrupo.js
+
 
 const API_URL = import.meta.env.VITE_API_URL;
 
-export default async function crearGrupo(grupo) {
+export default async function guardarGrupo(grupo) {
     const token = localStorage.getItem("token");
 
     try {
@@ -18,12 +18,12 @@ export default async function crearGrupo(grupo) {
         const result = await response.json();
 
         if (!response.ok) {
-            throw new Error(result.message || "Error al crear grupo");
+            throw new Error(result.message || "Error al guardar grupo");
         }
 
-        return result; // Devuelve la respuesta para manejarla en el modal
+        return result; // Devuelve la respuesta
     } catch (error) {
-        console.error("Error creando grupo:", error);
+        console.error("Error guardando grupo:", error);
         return null;
     }
 }

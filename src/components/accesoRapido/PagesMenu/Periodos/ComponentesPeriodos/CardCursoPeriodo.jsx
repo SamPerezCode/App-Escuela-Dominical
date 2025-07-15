@@ -1,13 +1,12 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import ToggleSwitch from "./ToggleSwitch";
 import ModalAsociarGrupo from "./ModalAsociargrupos";
 import eliminarGrupo from "../../../../../api/grupos/eliminarGrupo";
-import { useAlumnos } from "../../../../../context/AlumnosContext"; // 👈 Trae los alumnos si quieres filtrar aquí
+import { useAlumnos } from "../../../../../context/AlumnosContext";
 import "./CardCursoPeriodo.css";
 
 function CardCursoPeriodo({
   curso,
-  cantidadAlumnos,
   gruposPorCurso,
   grupos,
   celebracionesDisponibles,
@@ -16,19 +15,14 @@ function CardCursoPeriodo({
 }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [menuAbiertoId, setMenuAbiertoId] = useState(null);
+  const [grupoExistente, setGrupoExistente] = useState(null);
+  const dropdownRef = useRef(null);
 
-  const { alumnos } = useAlumnos(); // 👈 Siempre tienes acceso al contexto global
+  const { alumnos } = useAlumnos();
 
-  // ✅ Asegúrate de filtrar por activos y rango de edad
   const alumnosFiltrados = alumnos?.filter(
-    (a) =>
-      a.activo &&
-      a.edad >= curso.edad_minima &&
-      a.edad <= curso.edad_maxima
+    (a) => a.activo && a.edad >= curso.edad_minima && a.edad <= curso.edad_maxima
   ) || [];
-
-  // console.log(`🎓 Curso: ${curso.nombre}`);
-  // console.log(`✅ Alumnos activos filtrados:`, alumnosFiltrados);
 
   const toggleMenu = (grupoId) => {
     if (menuAbiertoId === grupoId) {
@@ -37,6 +31,16 @@ function CardCursoPeriodo({
       setMenuAbiertoId(grupoId);
     }
   };
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setMenuAbiertoId(null);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   const handleEliminarGrupo = async (grupoId) => {
     const confirmado = confirm("¿Estás seguro de eliminar este grupo?");
@@ -58,9 +62,7 @@ function CardCursoPeriodo({
         <h3>{curso.nombre}</h3>
         <ToggleSwitch
           isActive={curso.estado === "activo"}
-          onToggle={() => {
-            console.log(`Toggle curso: ${curso.nombre}`);
-          }}
+          onToggle={() => console.log(`Toggle curso: ${curso.nombre}`)}
         />
       </div>
 
@@ -83,14 +85,35 @@ function CardCursoPeriodo({
                     src="/image/menu-vertical.svg"
                     alt="acciones"
                     className="icono-menu"
-                    onClick={() => toggleMenu(grupo.id)}
+                    onClick={(e) => {
+                      e.stopPropagation(); // Para evitar burbujas
+                      toggleMenu(grupo.id);
+                    }}
                   />
+
                   {menuAbiertoId === grupo.id && (
-                    <ul className="dropdown-opciones">
-                      <li onClick={() => handleEliminarGrupo(grupo.id)}>Eliminar grupo</li>
+                    <ul
+                      className="dropdown-opciones"
+                      onClick={(e) => e.stopPropagation()} // Evita que el click se propague
+                    >
+                      <li onClick={() => {
+                        setGrupoExistente(grupo);
+                        setIsModalOpen(true);
+                        setMenuAbiertoId(null); // Cierra el menú
+                      }}>
+                        Editar grupo
+                      </li>
+                      <li onClick={() => {
+                        handleEliminarGrupo(grupo.id);
+                        setMenuAbiertoId(null); // Cierra el menú
+                      }}>
+                        Eliminar grupo
+                      </li>
                     </ul>
                   )}
                 </div>
+
+
               </div>
               <ul>
                 {grupo.maestros.map((m) => (
@@ -106,8 +129,10 @@ function CardCursoPeriodo({
 
       <button
         className="card-curso-periodo__btn-asociar"
-        onClick={() => setIsModalOpen(true)}
-      >
+        onClick={() => {
+          setGrupoExistente(null);
+          setIsModalOpen(true);
+        }}>
         Asignar maestros a curso
       </button>
 
@@ -118,6 +143,7 @@ function CardCursoPeriodo({
         celebracionesDisponibles={celebracionesDisponibles}
         maestrosDisponibles={maestrosDisponibles}
         grupos={grupos}
+        grupoExistente={grupoExistente} // ✅ coherente para crear o editar
         onGuardarGrupo={(grupo) => {
           console.log("Grupo guardado:", grupo);
           if (onActualizarGrupos) onActualizarGrupos();
