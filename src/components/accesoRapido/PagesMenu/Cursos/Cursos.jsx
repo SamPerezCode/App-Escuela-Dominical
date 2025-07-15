@@ -74,7 +74,6 @@ function Cursos() {
                                     <li onClick={() => handleAccion("volver")}>← Regresar</li>
                                 )}
                                 <li onClick={() => handleAccion("crear")}>Crear curso</li>
-                                <li onClick={() => handleAccion("actuales")}>Cursos actuales</li>
                             </ul>
                         )}
                     </div>

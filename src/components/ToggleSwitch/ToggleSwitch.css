@@ -1,0 +1,66 @@
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 2.5em;
+    /* Escalable */
+    height: 1.4em;
+    /* Escalable */
+    flex-shrink: 0;
+    /* No se encoge dentro de flex */
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ef4444;
+    transition: 0.4s;
+    border-radius: 1em;
+}
+
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 1em;
+    /* Escalable */
+    width: 1em;
+    /* Escalable */
+    left: 0.2em;
+    /* Padding interno */
+    bottom: 0.2em;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+/* ✅ Activo: verde emerald */
+.toggle-switch input:checked+.toggle-slider {
+    background-color: #10b981;
+}
+
+.toggle-switch input:focus+.toggle-slider {
+    box-shadow: 0 0 1px #10b981;
+}
+
+.toggle-switch input:checked+.toggle-slider:before {
+    transform: translateX(1.1em);
+    /* Desplaza la bolita */
+}
+
+/* 🌓 Modo dark: colores base */
+.dark .toggle-slider {
+    background-color: #ef4444;
+}
+
+.dark .toggle-switch input:checked+.toggle-slider {
+    background-color: #10b981;
+}

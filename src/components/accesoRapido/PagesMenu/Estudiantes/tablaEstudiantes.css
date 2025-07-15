@@ -114,6 +114,11 @@
     transition: all 0.3s ease;
 }
 
+.paginacion-estudiantes span {
+    text-align: center;
+}
+
+
 .paginacion-estudiantes button:hover:not(:disabled) {
     background-color: #f3f4f6;
 }
@@ -123,7 +128,7 @@
     cursor: not-allowed;
 }
 
-/* 🌓 Modo oscuro */
+/*  Modo oscuro */
 body.dark .paginacion-estudiantes button {
     background-color: #1f2937;
     color: #f1f1f1;

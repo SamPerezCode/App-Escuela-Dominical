@@ -17,6 +17,7 @@ import CursoDetalle from './components/accesoRapido/PagesMenu/Cursos/CursoDetall
 import AlertaCumpleanios from './components/panelAdministrativo/components-panel/AlertaCumpleanios'
 import PrivateRoute from '../src/components/PrivateRoute'
 import Celebraciones from './components/accesoRapido/PagesMenu/Celebraciones/Celebraciones'
+import RegistrarCurso from './components/accesoRapido/PagesMenu/Cursos/RegistrarCurso'
 import './App.css'
 
 
@@ -48,6 +49,7 @@ function App() {
           {/* Cursos */}
           <Route path='cursos' element={<Cursos />} />
           <Route path='cursos/:id' element={<CursoDetalle />} />
+          <Route path="registrar-curso" element={<RegistrarCurso />} />
 
           {/* Celebraciones */}
           <Route path="celebraciones" element={<Celebraciones />} />

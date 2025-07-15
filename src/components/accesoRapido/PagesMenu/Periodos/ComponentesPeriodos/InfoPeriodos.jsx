@@ -129,7 +129,7 @@ function InfoPeriodos() {
               (g) => g.curso_periodo.curso_periodo_id === curso.curso_periodo_id
             );
 
-            // console.log(`✅ Grupos para ${curso.nombre}:`, gruposPorCurso);
+            // console.log(`Grupos para ${curso.nombre}:`, gruposPorCurso);
 
             return (
               <CardCursoPeriodo
@@ -137,7 +137,7 @@ function InfoPeriodos() {
                 curso={curso}
                 cantidadAlumnos={alumnosFiltrados.length}
                 gruposPorCurso={gruposPorCurso}
-                grupos={grupos} // ✅ Pasa TODOS los grupos para filtrar bien en el modal
+                grupos={grupos}
                 celebracionesDisponibles={celebraciones}
                 maestrosDisponibles={maestros}
                 onActualizarGrupos={handleActualizarGrupos}

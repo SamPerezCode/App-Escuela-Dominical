@@ -1,0 +1,161 @@
+.registro-curso {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+.header-registro-curso {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 8px;
+    gap: 12px;
+}
+
+.header-registro-curso h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.dark .header-registro-curso {
+    color: #f9fafb;
+    border-bottom: 2px solid #4b5563;
+}
+
+.acciones-header-curso {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.btn-volver {
+    padding: 6px 12px;
+    background-color: var(--card-bg);
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #111827;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-volver:hover {
+    background-color: var(--btn-hover-bg);
+}
+
+.dark .btn-volver {
+    background-color: #1f2937;
+    color: #f9fafb;
+    border-color: #4b5563;
+}
+
+.dark .btn-volver:hover {
+    background-color: #374151;
+}
+
+.icono-menu {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    margin-left: 12px;
+}
+
+.dark .icono-menu {
+    filter: brightness(0) invert(1);
+}
+
+.dropdown-opciones {
+    position: absolute;
+    right: 0;
+    top: 32px;
+    background: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    list-style: none;
+    padding: 6px 0;
+    min-width: 170px;
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.dropdown-opciones li {
+    padding: 10px 16px;
+    cursor: pointer;
+}
+
+.dropdown-opciones li:hover {
+    background-color: var(--btn-hover-bg);
+    color: var(--btn-hover-text);
+}
+
+.formulario-curso {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.formulario-curso label {
+    font-weight: bold;
+}
+
+.formulario-curso input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid var(--border-color, #ddd);
+    border-radius: 6px;
+    background-color: var(--card-bg, #fff);
+    color: var(--text-color, #111827);
+}
+
+body.dark .formulario-curso input {
+    background-color: #2c2c2c;
+    border-color: #555;
+    color: #f1f1f1;
+}
+
+.acciones-form {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn-guardar {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-guardar:hover {
+    background-color: #0056b3;
+}
+
+.btn-cancelar {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-cancelar:hover {
+    background-color: #c62828;
+}
